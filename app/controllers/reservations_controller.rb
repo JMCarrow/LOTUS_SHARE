@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @plant = Plant.find(params[:plant_id])
     @reservation.plant = @plant
-    #authorize @reservation
+    authorize @reservation
     if @reservation.save
       redirect_to dashboard_path
     else
