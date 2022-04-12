@@ -12,13 +12,13 @@ class PlantsController < ApplicationController
   end
 
   def create
-    @plant - Plant.new(plant_params)
+    @plant = Plant.new(plant_params)
     @plant.user = current_user
     # authorize @plant
     if @plant.save
-        redirect_to_plants_path
+      redirect_to_plants_path
     else
-        render :new
+      render :new
     end
   end
 
