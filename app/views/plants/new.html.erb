@@ -1,0 +1,15 @@
+<div class="container justify-content-center">
+  <br>
+  <h1 class="text-center">Your Plants</h1>
+  <div>
+    <div class="container col-8">
+      <%= simple_form_for @plant, remote: true do |f| %>
+        <%= f.input :category, collection: ["Name", "Size", "Environment"]%>
+        <%= f.input :name, placeholder: 'ex: Red Fern' %>
+        <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
+        <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
+        <%= f.submit "Confirm", class: "btn btn-primary" %> <%= link_to "back", plants_path, class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
