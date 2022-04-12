@@ -28,6 +28,13 @@ class PlantsController < ApplicationController
     authorize @plant
   end
 
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    authorize @plant
+    redirect_to dashboard_path
+  end
+  
   private
 
   def plant_params
