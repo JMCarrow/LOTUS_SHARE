@@ -2,21 +2,21 @@ class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # @plants = policy_scope(Plant)
+    @plants = policy_scope(Plant)
     @plants = Plant.all
   end
 
   def new
     @plant = Plant.new
-    # authorize @plant
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
-    # authorize @plant
+    authorize @plant
     if @plant.save
-      redirect_to_plants_path
+      redirect_to plants_path
     else
       render :new
     end
@@ -25,7 +25,7 @@ class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
     @reservation = Reservation.new
-    # authorize @plant
+    authorize @plant
   end
 
   private
