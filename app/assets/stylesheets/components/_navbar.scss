@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.navbar-lotus {
   justify-content: space-between;
   background: white;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  height: 10vh;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-lotus .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-lotus .navbar-brand img {
   width: 40px;
+}
+
+.navbar-title {
+  position: relative;
+  left: -100px;
+}
+
+.navbar-nav {
+  position: relative;
+  left: 100px;
 }
