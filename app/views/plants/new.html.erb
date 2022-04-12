@@ -4,7 +4,6 @@
   <div>
     <div class="container col-8">
       <%= simple_form_for @plant, remote: true do |f| %>
-        <%= f.input :category, collection: ["Name", "Size", "Environment"]%>
         <%= f.input :name, placeholder: 'ex: Red Fern' %>
         <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
         <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
