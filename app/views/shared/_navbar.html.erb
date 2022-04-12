@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lotus">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag asset_url('Logo') %>
   <% end %>
 
@@ -8,13 +8,13 @@
   </button>
   <div class="container">
     <div>
-      <h2 class="navbar-title">Lotus Share</h2>
+      <h2 class="navbar-title"><%= link_to "Lotus Share", root_path, class: "nav-link" %></h2>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to "Discover our plants", "#", class: "nav-link" %>
+          <%= link_to "Discover our plants", plants_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
