@@ -1,12 +1,27 @@
-<div class="index-title">
-<h1 class="text-center">Discover our selection of plant!</h1>
-<h2 class="text-center">Lotus know the one you like!</h2>
-</div>
+<div class="container index-title">
+  <div>
+    <h1 class="text-center">Discover our selection of plant!</h1>
+    <p class="text-center">Lotus know the one you like! Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque fuga beatae error dignissimos in architecto? Nisi dolore minus, velit facere omnis nostrum molestias cupiditate voluptatum, quisquam sit sint! Dolor?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore corporis natus, laudantium tempore accusamus inventore eligendi, voluptas autem perspiciatis recusandae, harum sint animi quam? Fugiat quidem tempora minus laborum nostrum.</p>
+  </div>
 
-<div class="container">
-  <% @plants.each do |plant| %>
-  <h2 style="font-size: 20px;"><%= plant.name %></h2>
-  <p style="font-size: 15px;"><%= plant.size %></p>
-  <p style="font-size: 15px;"><%= plant.environment %></p>
-  <% end %>
+  <div class="container card-container">
+      <% @plants.each do |plant| %>
+        <div class="plant-card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= plant.name %></h5>
+            <p class="card-text"><%= plant.size %> - <%= plant.environment %></p>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= plant.name %></li>
+              <li class="list-group-item"><%= plant.size %></li>
+              <li class="list-group-item"><%= plant.environment %></li>
+            </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      <% end %>
+  </div>
 </div>

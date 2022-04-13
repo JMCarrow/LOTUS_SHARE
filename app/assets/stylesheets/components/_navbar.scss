@@ -6,6 +6,7 @@
   top: 0px;
   height: 10vh;
   border-bottom: 1px solid lightgrey;
+  z-index: 10000;
 }
 
 .navbar-lotus .navbar-collapse {
@@ -22,6 +23,7 @@
   padding-top: 0.5rem;
   a {
     color: black;
+
   }
 }
 
