@@ -5,6 +5,7 @@
   position: fixed;
   top: 0px;
   height: 10vh;
+  border-bottom: 1px solid lightgrey;
 }
 
 .navbar-lotus .navbar-collapse {
@@ -18,6 +19,10 @@
 .navbar-title {
   position: relative;
   left: -100px;
+  padding-top: 0.5rem;
+  a {
+    color: black;
+  }
 }
 
 .navbar-nav {
