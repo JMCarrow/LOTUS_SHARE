@@ -22,13 +22,13 @@ puts "Created #{sara.first_name}"
 
 puts "Creating plants..."
 
-rose = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor")
+rose = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor", user:User.all.sample)
 puts "Created #{rose.name}"
 
-pine_tree = Plant.create(name: 'Pine Tree', size: "Large", environment: "Outdoor")
+pine_tree = Plant.create(name: 'Pine Tree', size: "Large", environment: "Outdoor", user: User.all.sample)
 puts "Created #{pine_tree.name}"
 
-coral = Plant.create(name: "Coral", size: "Median", environment: "Indoor")
+coral = Plant.create(name: "Coral", size: "Medium", environment: "Indoor", user: User.all.sample)
 puts "Created #{coral.name}"
 
 puts "Finished!"
