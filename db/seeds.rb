@@ -22,7 +22,7 @@ puts "Created #{sara.first_name}"
 
 puts "Creating plants..."
 
-rose = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor", user:User.all.sample)
+rose = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor", user: User.all.sample)
 puts "Created #{rose.name}"
 
 pine_tree = Plant.create(name: 'Pine Tree', size: "Large", environment: "Outdoor", user: User.all.sample)

@@ -14,3 +14,23 @@
 .btn-green:hover {
   background-color: #798777;
 }
+
+.cards-container-home {
+  margin-top: 3rem;
+  max-width: 90vw;
+  margin: auto;
+  padding-top: 3rem;
+}
+
+.option-title {
+  text-align: center;
+  padding: 1rem;
+}
+
+.option-body {
+  height: 20rem;
+}
+
+.option-photo {
+  object-fit: cover;
+}
