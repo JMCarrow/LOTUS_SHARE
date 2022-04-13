@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 2022_04_13_125444) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "date"
     t.boolean "delivered", default: false
     t.boolean "returned", default: false
-    t.string "address"
     t.bigint "user_id", null: false
     t.bigint "plant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "starts_at"
+    t.string "ends_at"
     t.index ["plant_id"], name: "index_reservations_on_plant_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
