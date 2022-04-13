@@ -47,8 +47,8 @@
               <div class="modal-body">
               <h4>"<%= plant.name %>" will cost you <% credit= rand (10) %> <%= credit %> credits, do you confirm your reservation?</h4>
                 <%= simple_form_for [plant, @reservation] do |f| %>
-                <%= f.input :starts_at, as: :string, required: false, input_html: {id: "range_start"} %>
-                <%= f.input :ends_at, as: :string, required: false, input_html: {id: "range_end"} %>
+                    <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                    <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
                 <p class="text-center"><%= f.submit class: "btn btn-secondary" %></p>
                 <% end %>
               </div>
