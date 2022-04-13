@@ -12,6 +12,26 @@
 @import "components/index";
 @import "pages/index";
 
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
 body {
   background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+}
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
