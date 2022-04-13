@@ -1,3 +1,33 @@
-  <h1 class="text-center">This is the show page!</h1>
 
-<%= cl_image_tag @plant.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container-product">
+  <div class="plant-image">
+    <h1></h1>
+    <%= cl_image_tag @plant.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div class="plant-content">
+    <div class="meta-info">
+      <h1><%= @plant.name %> - <%= @plant.environment %> - <%= @plant.size %></h1>
+
+      <div class="user-meta-info">
+        <p>This plant is own by <%= @plant.user.first_name %></p>
+        <a href=""><i>0 star</i> <span>0 reviews</span></a>
+      </div>
+
+      <div class="plant-price-infos">
+        <h2>13€/day</h2> <i class="fa-solid fa-basket-shopping"></i>
+      </div>
+        <br>
+      <div class="plant-infos">
+        <span><i class="fas fa-sun"></i> <strong>Sun exposure</strong></span>
+        <p> This plant like to be in the sun but can stay in the shadow</p>
+      </div>
+        <br>
+      <div class="plant-infos">
+        <span><i class="fa-solid fa-faucet-drip"></i> <strong>Watering</strong></span>
+        <p>Give water once a week</p>
+      </div>
+        <br>
+      <button type="button" class="btn reserve-btn" style="font-size: 20px;">Reserve to rent</button>
+    </div>
+  </div>
+</div>
