@@ -7,6 +7,7 @@
         <%= f.input :name, placeholder: 'ex: Red Fern' %>
         <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
         <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit "Confirm", class: "btn btn-primary" %> <%= link_to "back", plants_path, class: "btn btn-secondary" %>
       <% end %>
     </div>
