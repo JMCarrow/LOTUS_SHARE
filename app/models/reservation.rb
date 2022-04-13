@@ -2,5 +2,5 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :plant
 
-  validates :address, :date, presence:true
+  validates :starts_at, :ends_at, presence:true
 end

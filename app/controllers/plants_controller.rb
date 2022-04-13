@@ -4,6 +4,7 @@ class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant)
     @plants = Plant.all
+    @reservation = Reservation.new
   end
 
   def new
