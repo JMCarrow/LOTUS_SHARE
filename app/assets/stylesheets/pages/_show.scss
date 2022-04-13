@@ -1,0 +1,59 @@
+.container-product {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 6rem;
+  display: flex;
+}
+
+.plant-image {
+  width: 50%;
+  min-height: 70vh;
+}
+
+.plant-content {
+  width: 50%;
+  min-height: 70vh;
+  padding: 1rem;
+}
+
+.user-meta-info {
+  display: flex;
+  margin-top: 0;
+  p {
+    margin-right: 1rem;
+  }
+}
+
+.meta-info {
+  display: block;
+}
+
+.plant-price-infos {
+  display: flex;
+  h2 {
+    font-size: 30px;
+    margin-right: 1rem;
+  }
+  .fa-basket-shopping {
+    font-size: 30px;
+  }
+}
+
+.plant-infos {
+  p {
+    margin-top: 0;
+  }
+}
+
+.fa-sun {
+  font-size: 20px;
+}
+
+.reserve-btn {
+  background-color: #A2B29F;
+  border-radius: 20px;
+}
+
+.reserve-btn:hover {
+  background-color: #798777;
+}
