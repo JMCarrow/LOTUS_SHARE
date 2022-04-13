@@ -1,6 +1,8 @@
+
 <div class="container-product">
   <div class="plant-image">
     <h1></h1>
+    <%= cl_image_tag @plant.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
   <div class="plant-content">
     <div class="meta-info">
