@@ -1,0 +1,49 @@
+.mission-render {
+  margin: 3rem;
+}
+
+.mission-photo {
+  border: none;
+}
+
+.mission-title {
+  border-radius: 10px 10px 0px 0px;
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  asset_url("jungle.png");
+}
+
+.mission-content {
+  font-weight: 200;
+  text-align: center;
+}
+
+.mission-message {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.lotus-photo {
+  width: 15rem;
+}
+
+.card-lotus {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.card-mission {
+  width: 20rem;
+  height: 12rem;
+  border-radius: 10px;
+}
+
+.card-deck-mission {
+  display: flex;
+  justify-content: center;
+  max-width: 80vw;
+  margin: auto;
+}

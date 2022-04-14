@@ -29,3 +29,16 @@
     font-size: 20px;
   }
 }
+
+.sub-banner {
+  background-size: cover;
+  background-position: center;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-banner-title {
+  color: white;
+}

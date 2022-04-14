@@ -13,6 +13,8 @@ Plant.destroy_all
 User.destroy_all
 puts "Cleaning Database!"
 
+puts "Creating users..."
+
 mimi = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863403/pjajeppphezmcuta1n0q.jpg')
 user = User.create(first_name: "Mimi", last_name: "Dou", email: "test1@gmail.com", password: "123456")
 user.photo.attach(io: mimi, filename: 'mimi.png', content_type: 'image/png')
