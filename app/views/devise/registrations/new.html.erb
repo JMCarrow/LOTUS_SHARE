@@ -17,7 +17,18 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file %>,
+    <%= f.input :photo, as: :file,
+                required: true %>,
+  </div>
+
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" name="user[professional]">
+    <label class="custom-control-label" for="customSwitch1">I am a florist boutique</label>
+  </div>
+
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch2" name="user[healer]">
+    <label class="custom-control-label" for="customSwitch2">I would like to be contacted by others to heal and revive plants</label>
   </div>
 
   <div class="form-actions">

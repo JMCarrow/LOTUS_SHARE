@@ -7,6 +7,7 @@ class User < ApplicationRecord
    validates :email, uniqueness: true
 
    has_one_attached :photo
+   validates :photo, presence: true
 
    has_many :reviews, dependent: :destroy
    has_many :reservations, dependent: :destroy
