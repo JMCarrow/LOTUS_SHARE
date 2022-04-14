@@ -33,7 +33,7 @@ puts "Created #{user.first_name}"
 puts "Creating plants..."
 
 rose = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649852136/igw5gwys4hsmmqwg08rj.jpg')
-plant = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor", user:User.all.sample)
+plant = Plant.create(name: "Rose from Paris", size: "Small", environment: "Indoor", user: User.all.sample)
 plant.photo.attach(io: rose, filename: 'rose.png', content_type: 'image/png')
 puts "Created #{plant.name}"
 
