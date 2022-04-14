@@ -41,11 +41,6 @@ plant.photo.attach(io: pine_tree, filename: 'pine-tree.png', content_type: 'imag
 puts "Created #{plant.name}"
 
 hanging_fern = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649853160/m4vukrbt7opuqn3lgfzv.jpg')
-plant = Plant.create(name: "Hangning Fern", size: "Medium", environment: "Indoor", user: User.all.sample)
-plant.photo.attach(io: hanging_fern, filename: 'hanging-fern.png', content_type: 'image/png')
-puts "Created #{plant.name}"
-
-hanging_fern = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649853160/m4vukrbt7opuqn3lgfzv.jpg')
 plant = Plant.create(name: "Hangning Fern", size: "Medium", environment: "Outdoor", user: User.all.sample)
 plant.photo.attach(io: hanging_fern, filename: 'hanging-fern.png', content_type: 'image/png')
 puts "Created #{plant.name}"
