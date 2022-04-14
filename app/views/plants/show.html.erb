@@ -1,12 +1,12 @@
-
+<br>
+<br>
 <div class="container-product">
   <div class="plant-image">
-    <h1></h1>
-    <%= cl_image_tag @plant.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @plant.photo.key, crop: :fill, class:"show-image" %>
   </div>
   <div class="plant-content">
     <div class="meta-info">
-      <h1><%= @plant.name %> - <%= @plant.environment %> - <%= @plant.size %></h1>
+      <h1><%= @plant.name%></h1><h2><%= @plant.environment %> - <%= @plant.size %></h2>
 
       <div class="user-meta-info">
         <p>This plant is own by <%= @plant.user.first_name %></p>
@@ -28,6 +28,7 @@
       </div>
         <br>
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="font-size: 20px;">Reserve to rent</button></p>
+      <%= link_to 'delete', plant_path(@plant), method: :delete, data: { confirm: "Are you sure you want to delete this offer?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>
       <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
