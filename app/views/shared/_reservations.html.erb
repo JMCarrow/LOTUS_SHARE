@@ -1,0 +1,55 @@
+<div class="container col-10" style="background-color: white;">
+  <div class="container col-12">
+    <br>
+    <h2>My reservations</h2>
+    <br>
+    <table class="table table-responsive-xl table-hover">
+      <thead>
+        <tr>
+          <th scope="col">My rental dates </th>
+          <th scope="col">Session</th>
+          <th scope="col">Professor</th>
+          <th scope="col">Address</th>
+          <th scope="col" style="width: 250px; text-align: center;">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+        <tr>
+          <th scope="row" style="vertical-align: middle;"><%= reservation.starts_at%>to<%= reservation.ends_at%></th>
+          <td style="vertical-align: middle;"><%= reservation.plant.name %></td>
+          <td style="vertical-align: middle;"><%= reservation.plant.user.first_name %></td>
+          <td style="vertical-align: middle;"><%= reservation.plant.address %></td>
+          <td style="display: flex; justify-content: space-evenly;"><%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: "Are you sure to cancel your reservation?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update your rental reservation date</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= simple_form_for(reservation) do |f| %>
+                          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                          <%= f.submit class: "btn btn-primary text-center" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </td>
+        </tr>
+        <% end  %>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to "back", plants_path, class: "btn btn-secondary", style:"font-size: 20px; padding-left: 20px; padding-right: 20px" %>
+    <br>
+    <br>
+  </div>
+</div>

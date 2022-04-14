@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('Jungle')%>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('Jungle.png')%>);">
   <div class="container banner-title">
     <h1>Lotus Share</h1>
     <h3>Rent a plant from your community!</h3>
@@ -22,11 +22,14 @@
     <p>We are a community of plant aficionados who want to bring the joy of plants to everyone's life. We believe access to plants should not be limited to those with  green thumb, and ownership can be as simple as enjoying a plant for an afternoon or single event. We believe in empowering local communities and small businesses to work together toward collaborative consumption. We believe collaboration is the key to elevating community-based economies. Let us share together.</p>
 </div>
 
-  <div class="cards-container-home">
-    <%= render 'shared/option_cards' %>
-  </div>
+<div class="cards-container-home">
+  <%= render 'shared/option_cards' %>
+</div>
 
+<div class="carousel-render">
   <%= render 'shared/carousel' %>
+</div>
+
 
 <div>
   <p></p>
