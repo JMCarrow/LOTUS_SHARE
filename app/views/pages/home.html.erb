@@ -1,21 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('Jungle.png')%>);">
-  <div class="container banner-title">
-    <h1>Lotus Share</h1>
-    <h3>Rent a plant from your community!</h3>
-  <%= link_to "Discover our plants", plants_path, class: "btn btn-green" %>
-  </div>
-
-  <div class="container banner-title">
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control search-form string required" type="text" name="search[query]" id="search_query"/>
-        <button name="button" type="submit" class="btn btn-light">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+<%= render 'shared/banner' %>
 
 <div class="about-us">
     <h1>Who We Are</h1>
@@ -30,25 +13,14 @@
   <%= render 'shared/carousel' %>
 </div>
 
+<div class="mission-render">
+  <%= render 'shared/mission' %>
+</div>
 
-<div>
-  <p></p>
-  <h2>Our Mission</h2>
-  <p>To promote stronger bonds within communities and make plant ownership accessible to all.</p>
-  <p></p>
-  <p></p>
-  <h2>Our Vision</h2>
-  <p>To pollinate every home and public space with a plant.</p>
-  <p></p>
-  <p></p>
-  <h2>Our Values</h2>
-  <h3>Thriving</h3>
-    <p>To not only grow, but to flourish</p>
-  <h3>Sustainability</h3>
-    <p>To engage local ecosystems to improve environmental quality<p>
-  <h3>Diversity</h3>
-    <p>To enrich each other's soil and broaden our horizons</p>
-  <h3>Stewardship</h3>
-    <p>To plant the seeds for a better tomorrow.</p>
+<div class="sub-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('jungle.png')%>);">
+  <h2 class="sub-banner-title">Join us and become part of our community</h2>
+</div>
 
+<div class="values-render">
+  <%= render 'shared/values' %>
 </div>
