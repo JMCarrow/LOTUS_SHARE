@@ -35,6 +35,18 @@ puts "Created #{user.first_name}"
 
 puts "Creating plants..."
 
+alstromeria = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649948453/b78iw0b57hl7rlbbhxod.jpg')
+plant = Plant.create(name: "Alstroemeria Paola", size: "Small", environment: "Outdoor", user: User.all.sample)
+plant.photo.attach(io: alstromeria, filename: 'alstromeria.png', content_type: 'image/png')
+plant.save
+puts "Created #{plant.name}"
+
+hydrangeas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649948331/fcfncm3eudowe4eho3yk.jpg')
+plant = Plant.create(name: "Limelight Hydrangea", size: "Large", environment: "Outdoor", user: User.all.sample)
+plant.photo.attach(io: hydrangeas, filename: 'hydrangeas.png', content_type: 'image/png')
+plant.save
+puts "Created #{plant.name}"
+
 rose = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649852136/igw5gwys4hsmmqwg08rj.jpg')
 plant = Plant.new(name: "Rose from Paris", size: "Small", environment: "Indoor", user: User.all.sample)
 plant.photo.attach(io: rose, filename: 'rose.png', content_type: 'image/png')

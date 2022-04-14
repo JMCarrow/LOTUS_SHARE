@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 2022_04_14_153650) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "organic"
     t.boolean "flowering"
-    t.float "rentprice"
-    t.float "buyprice"
     t.string "species"
     t.string "height"
     t.string "flower_color"
