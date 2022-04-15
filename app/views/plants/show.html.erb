@@ -2,19 +2,24 @@
 <br>
 <div class="container-product">
   <div class="plant-image">
-    <%= cl_image_tag @plant.photo.key, crop: :fill, class:"show-image" %>
+    <div>
+      <%= cl_image_tag @plant.photo.key, crop: :fill, class:"show-image" %>
+      <div class="user-meta-info">
+        <p>This plant is owned by <strong><%= link_to @plant.user.first_name, "#" %></strong></p>
+        <a href=""><i>0 star</i> <span>0 reviews</span></a>
+      </div>
+    </div>
   </div>
   <div class="plant-content">
     <div class="meta-info">
-      <h1><%= @plant.name%></h1><h2><%= @plant.environment %> - <%= @plant.size %></h2>
-
-      <div class="user-meta-info">
-        <p>This plant is own by <%= @plant.user.first_name %></p>
-        <a href=""><i>0 star</i> <span>0 reviews</span></a>
+      <div class="meta-title-info">
+        <h1><%= @plant.name%></h1>
+        <span><%= @plant.species %></span>
+        <h2><%= @plant.environment %> - <%= @plant.size %></h2>
       </div>
 
       <div class="plant-price-infos">
-        <h2><%= @plant.rent_price %>/day</h2> <i class="fa-solid fa-basket-shopping"></i>
+        <h2><%= @plant.rent_price %>€/day</h2> <i class="fa-solid fa-basket-shopping"></i>
       </div>
         <br>
       <div class="plant-infos">
@@ -29,7 +34,6 @@
         <span><i class="fa-solid fa-seedling"></i> <strong>Care</strong></span>
         <p><%= @plant.care %></p>
       </div>
-        <br>
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="font-size: 20px;">Reserve to rent</button></p>
       <%= link_to "back", plants_path, style:"padding-left: 20px; padding-right: 20px", class: "btn btn-secondary" %>
       <%= link_to 'delete', plant_path(@plant), method: :delete, data: { confirm: "Are you sure you want to delete this offer?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>

@@ -18,8 +18,11 @@
               <% end %>
             </div>
             <div class="index-card-info">
-              <h5 class="index-card-title"><%= plant.name.length < 20 ? plant.name : plant.name.first(20) + "..."%></h5>
-              <p class="index-card-text"><%= plant.size %> - <%= plant.environment %></p>
+              <h5 class="index-card-title"><%= plant.name.length < 16 ? plant.name : plant.name.first(16) + "..."%></h5>
+              <div class="index-card-text">
+                <p><%= plant.size %> - <%= plant.environment %></p>
+                <span><%= plant.rent_price %>€ /Day</span>
+              </div>
             </div>
           </div>
         <% end %>
