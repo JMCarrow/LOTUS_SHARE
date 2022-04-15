@@ -4,9 +4,35 @@
   <div>
     <div class="container col-8">
       <%= simple_form_for @plant, remote: true do |f| %>
-        <%= f.input :name, placeholder: 'ex: Red Fern' %>
+        <%= f.input :name, placeholder: 'ex: Boston Fern' %>
+        <%= f.input :species, placeholder: 'ex: Nephrolepis exaltata' %>
         <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
         <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
+        <%= f.input :height, collection: ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"] %>
+        <%= f.input :rent_price, placeholder: '5.00' %>
+        <%= f.input :sun_exposure, collection: ["Direct", "Indirect"] %>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch3" name="plant[organic]">
+          <label class="custom-control-label" for="customSwitch3">Organic</label>
+       </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch4" name="plant[flowering]">
+          <label class="custom-control-label" for="customSwitch4">Flowering</label>
+       </div>
+
+        <%= f.input :flower_color, collection: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White", "Pink", "Multi"] %>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch5" name="plant[availabe_for_purchase]">
+          <label class="custom-control-label" for="customSwitch5">Available for Purchase</label>
+       </div>
+
+
+        <%= f.input :buy_price, placeholder: '25.00' %>
+        <%= f.input :address, placeholder: 'Enter the address for the location of the plant.' %>
+        <%= f.input :description, placeholder: 'A feathery plant with a 100% green effect.' %>
+        <%= f.input :care, placeholder: 'Water 0.5L once per week and mist leaves.' %>
         <%= f.input :photo, as: :file %>
         <%= f.submit "Confirm", class: "btn btn-primary" %> <%= link_to "back", plants_path, class: "btn btn-secondary" %>
       <% end %>
