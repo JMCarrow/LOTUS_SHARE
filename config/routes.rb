@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :plants do
     resources :reservations, only: [:create]
   end
-  resources :reservations, only: [:destroy, :edit, :update]
+  resources :reservations, only: [:destroy, :edit, :update, :show]
   get "dashboard", to: "dashboard#dashboard"
 end
