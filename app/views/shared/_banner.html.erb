@@ -6,13 +6,17 @@
   </div>
 
   <div class="container banner-title">
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control search-form string required" type="text" name="search[query]" id="search_query"/>
-        <button name="button" type="submit" class="btn btn-light">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    </form>
+    <%= form_tag plants_path, class: "simple_form search", method: :get do %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search-form string required",
+        placeholder: "Search your perfect plant"
+      %>
+      <button name="button" type="submit" class="btn btn-light">
+        <i class="fas fa-search"></i> Search
+      </button>
+      <% end %>
+    </div>
   </div>
 </div>
