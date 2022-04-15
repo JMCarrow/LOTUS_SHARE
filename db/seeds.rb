@@ -78,31 +78,31 @@ plant.save
 puts "Created #{plant.name}"
 
 rubber_tree = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864788/co3ijavwwuz3lpvphdgo.jpg')
-plant = Plant.new(name: "Rubber Tree", size: "Medium", environment: "Indoor", species: "Hevea brasiliensis,", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "168 Av. de Choisy, 75013 Paris", description: "Add a jungle-liek aspect to your party!", watering: "Spritz leaves daily with room-temperature water", care: "Nothing to do but enjoy!", user: User.all.sample)
+plant = Plant.new(name: "Rubber Tree", size: "Medium", environment: "Indoor", species: "Hevea brasiliensis", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "168 Av. de Choisy, 75013 Paris", description: "Add a jungle-liek aspect to your party!", watering: "Spritz leaves daily with room-temperature water", care: "Nothing to do but enjoy!", user: User.all.sample)
 plant.photo.attach(io: rubber_tree, filename: 'rubber_tree.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
 
 bonsai = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864753/ijkvg0ozdzsc1cirxmud.jpg')
-plant = Plant.new(name: "Bonsai Tree", size: "Large", environment: "Indoor", species: "Jacaranda Mimosifolia,", height: "100cm+", rent_price: 6, sun_exposure: "Direct", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "36 Rue Geoffroy-Saint-Hilaire, 75005 Paris", description: "Large tree provides an asiantic feel to any gathering!", watering: "Watering 0.5L once every two weeks.", care: "Whisper kind words in her leaves every hour for optimum beauty.", user: User.all.sample)
+plant = Plant.new(name: "Bonsai Tree", size: "Large", environment: "Indoor", species: "Jacaranda Mimosifolia", height: "100cm+", rent_price: 6, sun_exposure: "Direct", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "36 Rue Geoffroy-Saint-Hilaire, 75005 Paris", description: "Large tree provides an asiantic feel to any gathering!", watering: "Watering 0.5L once every two weeks.", care: "Whisper kind words in her leaves every hour for optimum beauty.", user: User.all.sample)
 plant.photo.attach(io: bonsai, filename: 'bonsai_tree.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
 
 hk = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864725/gcogwtyviim5bgucftmh.jpg')
-plant = Plant.new(name: "Hoya Kerrii", size: "Small", environment: "Indoor", species: "Acokanthera obovata var. kerrii,", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "1 Rue des Fossés Saint-Bernard, 75005 Paris", description: "Heart-shaped plant will remind you to take a moment of mindfulness with every glance.", watering: "Watering 50ml once every two weeks.", care: "Nothing to do here!", user: User.all.sample)
+plant = Plant.new(name: "Hoya Kerrii", size: "Small", environment: "Indoor", species: "Acokanthera obovata var. kerrii", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "1 Rue des Fossés Saint-Bernard, 75005 Paris", description: "Heart-shaped plant will remind you to take a moment of mindfulness with every glance.", watering: "Watering 50ml once every two weeks.", care: "Nothing to do here!", user: User.all.sample)
 plant.photo.attach(io: hk, filename: 'hoya-kerrii.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
 
 pothos = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864687/cqlrteyigdvprfy1t1yn.jpg')
-plant = Plant.new(name: "Pothos", size: "Medium", environment: "Outdoor", species: "Epipremnum aureum,", height: "20cm - 30cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "5 Rue de Thorigny, 75003 Paris", description: "Lovely and vibrant leaves brigthen up any space!", watering: "Water 200ml daily.", care: "Nothing to do here!", user: User.all.sample)
+plant = Plant.new(name: "Pothos", size: "Medium", environment: "Outdoor", species: "Epipremnum aureum", height: "20cm - 30cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "5 Rue de Thorigny, 75003 Paris", description: "Lovely and vibrant leaves brigthen up any space!", watering: "Water 200ml daily.", care: "Nothing to do here!", user: User.all.sample)
 plant.photo.attach(io: pothos, filename: 'pothos.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
 
 croton = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864602/ipytofq26u4xbuh7jin9.jpg')
-plant = Plant.new(name: "Croton", size: "Small", environment: "Indoor", species: "Codiaeum variegatum,", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "9 Cr des Petites Écuries, 75010 Paris", description: "Perfect plant with green and orange leaves to bring an accent of color to any apartment!", watering: "Water 50ml once per week.", care: "Nothing to do here!", user: User.all.sample)
+plant = Plant.new(name: "Croton", size: "Small", environment: "Indoor", species: "Codiaeum variegatum", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: nil, address: "9 Cr des Petites Écuries, 75010 Paris", description: "Perfect plant with green and orange leaves to bring an accent of color to any apartment!", watering: "Water 50ml once per week.", care: "Nothing to do here!", user: User.all.sample)
 plant.photo.attach(io: croton, filename: 'croton.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
