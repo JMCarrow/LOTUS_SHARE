@@ -16,7 +16,7 @@
       <tbody>
         <% @reservations.each do |reservation| %>
         <tr>
-          <th scope="row" class="resa-info resa-date"><%= reservation.starts_at%>to<%= reservation.ends_at%></th>
+          <th scope="row" class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
           <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
           <td class="resa-info"><%= reservation.plant.user.first_name %></td>
           <td class="resa-info"><%= reservation.plant.address %></td>
