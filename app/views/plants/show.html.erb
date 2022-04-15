@@ -14,7 +14,7 @@
     <div class="meta-info">
       <div class="meta-title-info">
         <div class="meta-title">
-          <h1><%= @plant.name%></h1><h3> - <%= @plant.environment %></h3>
+          <h1><%= @plant.name %> </h1><h2> - </h2><h3><%= @plant.environment %></h3>
         </div>
         <span><%= @plant.species %></span>
         <h3>Size - <%= @plant.height %></h3>
@@ -44,7 +44,7 @@
       <%= link_to "back", plants_path, style:"padding-left: 20px; padding-right: 20px", class: "btn btn-secondary" %>
       <%= link_to 'delete', plant_path(@plant), method: :delete, data: { confirm: "Are you sure you want to delete this offer?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>
 
-      <%= render 'shared/modal'%>
+      <%= render 'shared/modalplant'%>
 
     </div>
   </div>

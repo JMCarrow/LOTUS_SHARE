@@ -1,3 +1,7 @@
+.dash-container {
+  min-width: 90%;
+}
+
 .dash-title {
   font-family: 'Montserrat', sans-serif;
   font-size: small;
@@ -6,6 +10,10 @@
 
 .edit {
   text-align: center;
+}
+
+.dash-onglet-title {
+padding: 1rem;
 }
 
 .dash-link {
@@ -21,5 +29,6 @@
 }
 
 .resa-date {
-  font-weight: 400;
+  font-weight: 200;
+  font-size: 15px;
 }
