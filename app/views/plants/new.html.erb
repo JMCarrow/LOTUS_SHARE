@@ -6,11 +6,11 @@
       <%= simple_form_for @plant, remote: true do |f| %>
         <%= f.input :name, placeholder: 'ex: Boston Fern' %>
         <%= f.input :species, placeholder: 'ex: Nephrolepis exaltata' %>
-        <%= f.input :rent_price, placeholder: '5.00' %>
         <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
-        <%= f.input :sun_exposure, collection: ["Direct", "Indirect"] %>
         <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
         <%= f.input :height, collection: ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"] %>
+        <%= f.input :rent_price, placeholder: '5.00' %>
+        <%= f.input :sun_exposure, collection: ["Direct", "Indirect"] %>
 
         <div class="custom-control custom-switch">
           <input type="checkbox" class="custom-control-input" id="customSwitch3" name="plant[organic]">
