@@ -1,0 +1,25 @@
+.dash-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+  font-weight: 400;
+}
+
+.edit {
+  text-align: center;
+}
+
+.dash-link {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.resa-info {
+  vertical-align: middle !important;
+  a {
+    color: black;
+  }
+}
+
+.resa-date {
+  font-weight: 400;
+}
