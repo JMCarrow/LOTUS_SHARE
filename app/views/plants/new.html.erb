@@ -9,7 +9,7 @@
         <%= f.input :environment, collection: ["Indoor", "Outdoor"] %>
         <%= f.input :size, collection: ["Large", "Medium", "Small"] %>
         <%= f.input :height, collection: ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"] %>
-        <%= f.input :rent_price, placeholder: '5.00' %>
+        <%= f.input :rent_price, placeholder: '5' %>
         <%= f.input :sun_exposure, collection: ["Direct", "Indirect"] %>
 
         <div class="custom-control custom-switch">
@@ -29,7 +29,7 @@
        </div>
 
 
-        <%= f.input :buy_price, placeholder: '25.00' %>
+        <%= f.input :buy_price, placeholder: '25' %>
         <%= f.input :address, placeholder: 'Enter the address for the location of the plant.' %>
         <%= f.input :description, placeholder: 'A feathery plant with a 100% green effect.' %>
         <%= f.input :care, placeholder: 'Water 0.5L once per week and mist leaves.' %>
