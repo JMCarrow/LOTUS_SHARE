@@ -3,6 +3,7 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant)
+    @plants = Plant.geocoded
     # if params[:category]
     # @plants = Plant.where(category: params[:category])
     if params[:query].present?
@@ -16,13 +17,14 @@ class PlantsController < ApplicationController
       @plants = Plant.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @plants = Plant.all
-    end
-    @markers = @plants.geocoded.map do |plant|
-      {
-        lat: plant.latitude,
-        lng: plant.longitude,
-        #info_window: render_to_string(partial: "info_window", locals: { plant: plant })
-      }
+      @markers = @plants.geocoded.map do |plant|
+        {
+          lat: plant.latitude,
+          lng: plant.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { plant: plant })
+          # image_url: helpers.asset_url(<% plant.photo.key %> )
+        }
+      end
     end
   end
 
