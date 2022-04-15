@@ -1,108 +1,69 @@
-<div class="container col-10" style="background-color: white;">
-  <div class="container col-12">
-    <br>
+
+<div class="container dash-container">
+  <div class="dash-onglet-title">
     <h3>My reservations</h3>
-    <br>
-    <table class="table table-responsive-xl table-hover">
-      <thead>
+  </div>
+  <table class="table table-responsive-xl table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="dash-title" >My rental dates </th>
+        <th scope="col" class="dash-title">Session</th>
+        <th scope="col" class="dash-title">Professor</th>
+        <th scope="col" class="dash-title">Address</th>
+        <th scope="col" class="dash-title edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
         <tr>
-          <th scope="col" class="dash-title" >My rental dates </th>
-          <th scope="col" class="dash-title">Session</th>
-          <th scope="col" class="dash-title">Professor</th>
-          <th scope="col" class="dash-title">Address</th>
-          <th scope="col"class="dash-title edit">Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reservations.each do |reservation| %>
-        <tr>
-          <th scope="row" class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+          <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
           <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
           <td class="resa-info"><%= reservation.plant.user.first_name %></td>
           <td class="resa-info"><%= reservation.plant.address %></td>
           <div>
             <td class="dash-link"><%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: "Are you sure to cancel your reservation?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+            </td>
           </div>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update your rental reservation date</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%= simple_form_for(reservation) do |f| %>
-                          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                          <%= f.submit class: "btn btn-primary text-center" %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </td>
+          <%= render 'shared/modalresa', reservation: reservation %>
         </tr>
-        <% end  %>
-      </tbody>
-    </table>
-    <br>
-    <%= link_to "back", plants_path, class: "btn btn-secondary", style:"font-size: 20px; padding-left: 20px; padding-right: 20px" %>
-    <br>
-    <br>
+      <% end  %>
+    </tbody>
+  </table>
+  <br>
+  <div class="dash-onglet-title">
+  <h3>Current loans</h3>
+  </div>
+  <table class="table table-responsive-xl table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="dash-title">Plant Name </th>
+        <th scope="col" class="dash-title">Client Email </th>
+        <th scope="col" class="dash-title">Delivery Address</th>
+        <th scope="col" class="dash-title">Reserved dates</th>
+        <th scope="col" class="dash-title">Manage the order</th>
+        <th scope="col" class="dash-title edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
+      <tr>
+        <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
+        <td class="resa-info"><%= clientreservation.user.first_name %></td>
+        <td class="resa-info"><%= clientreservation.user.email %></td>
+        <td class="resa-info"><%= clientreservation.starts_at%>to<%= clientreservation.ends_at%></td>
+        <td class="resa-info"><%= clientreservation.plant.address %></td>
+        <div>
+          <td class="dash-link">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+          </td>
+        </div>
+        <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
+      </tr>
+      <% end  %>
+    </tbody>
+  </table>
+  <div class="dash-back">
+    <%= link_to "back", plants_path, class: "btn btn-secondary", style: "padding-left: 20px; padding-right: 20px" %>
   </div>
 </div>
-
-<div class="container col-10" style="background-color: white;">
-  <div class="container col-12">
-    <br>
-    <h2>Manage people's orders</h2>
-    <br>
-    <table class="table table-responsive-xl table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Plant Name </th>
-          <th scope="col">Client Email </th>
-          <th scope="col">Delivery Address</th>
-          <th scope="col">Reserved dates</th>
-          <th scope="col">Manage the order</th>
-          <th scope="col" style="width: 250px; text-align: center;">Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
-        <tr>
-          <th scope="row" style="vertical-align: middle;"><%= clientreservation.plant.name %></th>
-          <td style="vertical-align: middle;"><%= clientreservation.user.first_name %></td>
-          <td style="vertical-align: middle;"><%= clientreservation.user.email %></td>
-          <td style="vertical-align: middle;"><%= clientreservation.starts_at%>to<%= clientreservation.ends_at%></td>
-          <td style="vertical-align: middle;"><%= clientreservation.plant.address %></td>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update your rental reservation date</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%= simple_form_for(clientreservation) do |f| %>
-                          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                          <%= f.submit class: "btn btn-primary text-center" %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </td>
-        </tr>
-        <% end  %>
-      </tbody>
-    </table>

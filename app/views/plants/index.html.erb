@@ -8,7 +8,7 @@
 
 <div class="plant-map">
   <div class="card-container">
-    <% if @plants %>
+    <% if @plants.any? %>
       <% @plants.each do |plant| %>
         <div class="plant-card">
           <%= link_to plant_path(plant) do %>
@@ -42,7 +42,7 @@
         </div>
       <% end %>
     <% else %>
-     <h2>Sorry no match for this query</h2>
+     <%= "Nothing" %>
     <% end  %>
   </div>
 
