@@ -16,10 +16,10 @@
       <tbody>
         <% @reservations.each do |reservation| %>
         <tr>
-          <th scope="row" class="resa-info" style="vertical-align: middle;"><%= reservation.starts_at%>to<%= reservation.ends_at%></th>
-          <td style="vertical-align: middle;"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
-          <td style="vertical-align: middle;"><%= reservation.plant.user.first_name %></td>
-          <td style="vertical-align: middle;"><%= reservation.plant.address %></td>
+          <th scope="row" class="resa-info resa-date"><%= reservation.starts_at%>to<%= reservation.ends_at%></th>
+          <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
+          <td class="resa-info"><%= reservation.plant.user.first_name %></td>
+          <td class="resa-info"><%= reservation.plant.address %></td>
           <div>
             <td class="dash-link"><%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: "Are you sure to cancel your reservation?"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-secondary"%>
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>

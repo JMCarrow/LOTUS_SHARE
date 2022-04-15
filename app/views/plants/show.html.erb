@@ -14,17 +14,21 @@
       </div>
 
       <div class="plant-price-infos">
-        <h2>13€/day</h2> <i class="fa-solid fa-basket-shopping"></i>
+        <h2><%= @plant.rent_price %>/day</h2> <i class="fa-solid fa-basket-shopping"></i>
       </div>
         <br>
       <div class="plant-infos">
         <span><i class="fas fa-sun"></i> <strong>Sun exposure</strong></span>
-        <p> This plant like to be in the sun but can stay in the shadow</p>
+        <p><%= @plant.sun_exposure %></p>
       </div>
         <br>
       <div class="plant-infos">
         <span><i class="fa-solid fa-faucet-drip"></i> <strong>Watering</strong></span>
         <p>Give water once a week</p>
+      </div>
+      <div class="plant-infos">
+        <span><i class="fa-solid fa-seedling"></i> <strong>Care</strong></span>
+        <p>Nothing to do but give her love</p>
       </div>
         <br>
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="font-size: 20px;">Reserve to rent</button></p>

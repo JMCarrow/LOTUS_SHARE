@@ -11,9 +11,8 @@
   text-align: center;
   color: white;
   padding: 1rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  asset_url("jungle.png");
   height: 100%;
+  background-size: cover;
 }
 
 .mission-content {
