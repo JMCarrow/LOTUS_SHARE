@@ -3,11 +3,37 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant)
-    @plants = Plant.all
+    # if params[:category]
+    # @plants = Plant.where(category: params[:category])
+    if params[:query].present?
+      sql_query = " \
+        plants.name ILIKE :query \
+        OR plants.size ILIKE :query \
+        OR plants.description ILIKE :query \
+        OR plants.species ILIKE :query \
+        OR plants.address ILIKE :query \
+      "
+      @plants = Plant.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @plants = Plant.all
+    end
+    #@markers = @plants.geocoded.map do |plant|
+    #  {
+    #    lat: plant.latitude,
+    #    lng: plant.longitude,
+    #    info_window: render_to_string(partial: "info_window", locals: { plant: plant })
+    #  }
+    #end
   end
 
   def new
     @plant = Plant.new
+    authorize @plant
+  end
+
+  def show
+    @plant = Plant.find(params[:id])
+    @reservation = Reservation.new
     authorize @plant
   end
 
@@ -22,10 +48,16 @@ class PlantsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @plant = Plant.find(params[:id])
-    @reservation = Reservation.new
     authorize @plant
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    @plant.update(plant_params)
+    authorize @plant
+    redirect_to dashboard_path
   end
 
   def destroy

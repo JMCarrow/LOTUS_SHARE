@@ -13,13 +13,15 @@
   <div class="plant-content">
     <div class="meta-info">
       <div class="meta-title-info">
-        <h1><%= @plant.name%></h1>
+        <div class="meta-title">
+          <h1><%= @plant.name%></h1><h3> - <%= @plant.environment %></h3>
+        </div>
         <span><%= @plant.species %></span>
-        <h2><%= @plant.environment %> - <%= @plant.size %></h2>
+        <h3>Size - <%= @plant.height %></h3>
       </div>
 
       <div class="plant-price-infos">
-        <h2><%= @plant.rent_price %>€/day</h2> <i class="fa-solid fa-basket-shopping"></i>
+        <h2><%= @plant.rent_price %>€ /day</h2> <i class="fa-solid fa-basket-shopping"></i>
       </div>
         <br>
       <div class="plant-infos">
@@ -33,6 +35,10 @@
       <div class="plant-infos">
         <span><i class="fa-solid fa-seedling"></i> <strong>Care</strong></span>
         <p><%= @plant.care %></p>
+      </div>
+      <div class="plant-infos">
+        <span><i class="fa-solid fa-info"></i> - <strong>Plant information</strong></span>
+        <p><%= @plant.description %></p>
       </div>
       <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" style="font-size: 20px;">Reserve to rent</button></p>
       <%= link_to "back", plants_path, style:"padding-left: 20px; padding-right: 20px", class: "btn btn-secondary" %>
