@@ -26,13 +26,31 @@
 .user-meta-info {
   display: flex;
   margin-top: 0;
+  justify-content: center;
   p {
     margin-right: 1rem;
+  }
+  a {
+    color: black;
+    font-weight: 600;
   }
 }
 
 .meta-info {
   display: block;
+}
+
+.meta-title-info {
+  h1{
+    margin: 0;
+  }
+  span {
+    font-size: smaller;
+    font-style: italic;
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
 }
 
 .plant-price-infos {

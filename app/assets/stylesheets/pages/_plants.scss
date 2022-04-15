@@ -45,8 +45,14 @@ background-color: #F7F7F7;
 }
 
 .index-card-text {
-  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
   font-family: 'Montserrat', sans-serif;
+  span {
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
 
 .index-card-body {
