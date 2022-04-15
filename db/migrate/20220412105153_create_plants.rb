@@ -6,8 +6,8 @@ class CreatePlants < ActiveRecord::Migration[6.1]
       t.string :environment
       t.string :state
       t.boolean :available
-      t.float :rent_price
-      t.float :buy_price
+      t.integer :rent_price
+      t.integer :buy_price
       t.string :address
       t.string :description
       t.references :user, null: false, foreign_key: true

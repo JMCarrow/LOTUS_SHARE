@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_04_15_093730) do
     t.string "environment"
     t.string "state"
     t.boolean "available", default: true
-    t.float "rent_price"
-    t.float "buy_price"
+    t.integer "rent_price"
+    t.integer "buy_price"
     t.string "address"
     t.string "description"
     t.bigint "user_id", null: false
