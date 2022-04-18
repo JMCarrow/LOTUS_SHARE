@@ -6,9 +6,13 @@
   </div>
 </div>
 
+<div class="container index-ddown">
+  <%= render 'shared/ddown' %>
+</div>
+
 <div class="plant-map">
-  <div class="card-container">
-    <% if @plants.any? %>
+  <% if @plants.any? %>
+    <div class="card-container">
       <% @plants.each do |plant| %>
         <div class="plant-card">
           <%= link_to plant_path(plant) do %>
@@ -41,12 +45,12 @@
           </div>
         </div>
       <% end %>
-    <% else %>
-     <div>
-      <h2>Sorry you're selection is empty</h2>
-     </div>
-    <% end  %>
-  </div>
+    </div>
+  <% else %>
+    <div class="noresult">
+    <h1>Sorry you're selection is empty</h1>
+    </div>
+  <% end  %>
 
   <div id="map"
       data-markers="<%= @markers.to_json %>"

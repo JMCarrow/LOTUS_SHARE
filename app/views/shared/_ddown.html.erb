@@ -1,0 +1,40 @@
+<div class="ddown-search">
+  <div class="ddown-button">
+    <h3>Size: </h3>
+    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      Selection
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Small", plants_path(size: "Small"), class:"dropdown-item" %>
+      <%= link_to "Medium", plants_path(size: "Medium"), class:"dropdown-item" %>
+      <%= link_to "Large", plants_path(size: "Large"), class:"dropdown-item" %>
+    </div>
+  </div>
+  <div class="ddown-button">
+    <h3>Environment: </h3>
+    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      Selection
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Indoor", plants_path(environment: "Indoor"), class:"dropdown-item" %>
+      <%= link_to "Outdoor", plants_path(environment: "Outdoor"), class:"dropdown-item" %>
+    </div>
+  </div>
+  <div class="ddown-button">
+    <h3>Flower color: </h3>
+    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      Selection
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Red", plants_path(flower_color: "Red"), class:"dropdown-item" %>
+      <%= link_to "Orange", plants_path(flower_color: "Orange"), class:"dropdown-item" %>
+      <%= link_to "Yellow", plants_path(flower_color: "Yellow"), class:"dropdown-item" %>
+      <%= link_to "Green", plants_path(flower_color: "Green"), class:"dropdown-item" %>
+      <%= link_to "Blue", plants_path(flower_color: "Blue"), class:"dropdown-item" %>
+      <%= link_to "Purple", plants_path(flower_color: "Purple"), class:"dropdown-item" %>
+      <%= link_to "Pink", plants_path(flower_color: "Pink"), class:"dropdown-item" %>
+      <%= link_to "White", plants_path(flower_color: "White"), class:"dropdown-item" %>
+      <%= link_to "Multiple Color", plants_path(flower_color: "Multi"), class:"dropdown-item" %>
+    </div>
+  </div>
+</div>

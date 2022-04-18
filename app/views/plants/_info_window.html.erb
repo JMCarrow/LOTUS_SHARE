@@ -1,2 +1,5 @@
-<h2><%= plant.name %></h2>
-<p><%= plant.address %></p>
+<%= cl_image_tag plant.photo.key, class: "image-tag" %>
+<div class="map-tag">
+  <h2><%= plant.name %></h2>
+  <p><%= plant.address %></p>
+</div>
