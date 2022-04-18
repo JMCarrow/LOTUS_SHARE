@@ -11,6 +11,14 @@ Rails.application.routes.draw do
     member do 
       get :return
     end
+
+    member do 
+      get :accept
+    end
+
+    member do 
+      get :complete
+    end
   end
   get "dashboard", to: "dashboard#dashboard"
 end

@@ -50,19 +50,25 @@
     </thead>
     <tbody>
       <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
-      <tr>
-        <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
-        <td class="resa-info"><%= clientreservation.user.first_name %></td>
-        <td class="resa-info"><%= clientreservation.user.email %></td>
-        <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
-        <td class="resa-info"><%= clientreservation.plant.address %></td>
+        <% unless reservation.completed? %>
+        <tr>
+          <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
+          <td class="resa-info"><%= clientreservation.user.first_name %></td>
+          <td class="resa-info"><%= clientreservation.user.email %></td>
+          <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
+          <td class="resa-info"><%= clientreservation.plant.address %></td>
+<!--- This is where I need to create the order confrimation buttons--->
         <div>
           <td class="dash-link">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+            <%= link_to 'Accept Order', accept_reservation_path(reservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+            <%= link_to 'Confirm Returned', complete_reservation_path(reservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
           </td>
+
         </div>
+<!--- This is the end of where am creating confirmation buttons--->
         <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
       </tr>
+      <% end  %>
       <% end  %>
     </tbody>
   </table>
@@ -84,7 +90,7 @@
     <tbody>
       <% @reservations.each do |reservation| %>
       <tr>
-          <% if reservation.returned? %>
+          <% if reservation.returned == true || reservation.completed == true %>
           <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
           <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
           <td class="resa-info"><%= reservation.plant.user.first_name %></td>
