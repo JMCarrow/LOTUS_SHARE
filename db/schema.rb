@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2022_04_18_132142) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.float "rating"
-    t.string "content"
+    t.integer "rating"
+    t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_132142) do
     t.boolean "healer", default: false
     t.string "pro_name"
     t.boolean "minority_owned", default: false
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

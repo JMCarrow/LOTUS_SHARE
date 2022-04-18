@@ -52,5 +52,34 @@
   }
   .card-userpage-biotext {
     padding: 16px;
+    a, i {
+      text-decoration: none;
+      color: grey;
+    }
   }
+}
+
+.bio-icone {
+  position: absolute;
+  i {
+    position: relative;
+    right: -65rem;
+  }
+}
+
+.user-noresult {
+  h1 {
+    font-weight: 300;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 1rem;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
