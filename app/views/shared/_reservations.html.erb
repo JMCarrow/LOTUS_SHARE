@@ -26,8 +26,8 @@
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
               <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
             </td>
+            <%= render 'shared/modalresa', reservation: reservation %>
           </div>
-          <%= render 'shared/modalresa', reservation: reservation %>
         </tr>
       <% end  %>
      <% end  %>
@@ -66,10 +66,10 @@
       <% end  %>
     </tbody>
   </table>
- <br>
-<!--- This is where I have started to insert the past orders --->
-<div class="dash-onglet-title">
-    <h3>My Past Reservations</h3>
+  <br>
+  <!--- This is where I have started to insert the past orders --->
+  <div class="dash-onglet-title">
+  <h3>My Past Reservations</h3>
   </div>
   <table class="table table-responsive-xl table-hover">
     <thead>
@@ -83,8 +83,8 @@
     </thead>
     <tbody>
       <% @reservations.each do |reservation| %>
-        <tr>
-        <% if reservation.returned? %>
+      <tr>
+          <% if reservation.returned? %>
           <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
           <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
           <td class="resa-info"><%= reservation.plant.user.first_name %></td>
@@ -97,12 +97,7 @@
           <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
         </tr>
       <% end  %>
-    <% end  %>
     </tbody>
   </table>
-  <!--- This is where I have finished inserting the past orders --->
-  
-  <div class="dash-back">
-    <%= link_to "back", plants_path, class: "btn btn-secondary", style: "padding-left: 20px; padding-right: 20px" %>
-  </div>
+    <!--- This is where I have finished inserting the past orders --->
 </div>

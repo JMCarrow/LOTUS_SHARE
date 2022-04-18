@@ -71,7 +71,11 @@ background-color: #F7F7F7;
 }
 
 .index-card-link {
-  color: black;
+  display: flex;
+  justify-content: space-around;
+  a {
+    color: grey;
+  }
 }
 
  .index-card-image {

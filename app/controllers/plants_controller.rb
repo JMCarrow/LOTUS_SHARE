@@ -62,7 +62,7 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     @plant.update(plant_params)
     authorize @plant
-    redirect_to dashboard_path
+    redirect_to user_path(@plant.user)
   end
 
   def destroy
