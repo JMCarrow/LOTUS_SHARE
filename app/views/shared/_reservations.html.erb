@@ -91,12 +91,10 @@
           <td class="resa-info"><%= reservation.plant.address %></td>
           <div>
             <td class="dash-link">
-              <!--- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button> --->
-              <%= link_to 'Leave a Review', reservation_path(reservation), method: :delete, data: { confirm: "Thank you for using Lotus Share"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewModal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button> 
             </td>
           </div>
-          <%= render 'shared/modalresa', reservation: reservation %>
-          <% end %>
+          <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
         </tr>
       <% end  %>
     </tbody>
