@@ -22,13 +22,13 @@ user.save
 puts "Created #{user.first_name}"
 
 bob = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863546/situphgz4uta5zfemnwn.jpg')
-user = User.new(first_name: "Bob", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: true, healer: true)
+user = User.new(first_name: "Bob", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true)
 user.photo.attach(io: bob, filename: 'bob.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
 
 sara = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863641/vuv45dhhxrd6zhpuatwt.jpg')
-user = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true)
+user = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium")
 user.photo.attach(io: sara, filename: 'sara.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
