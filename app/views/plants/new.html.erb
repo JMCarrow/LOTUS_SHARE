@@ -11,6 +11,7 @@
         <%= f.input :height, collection: ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"] %>
         <%= f.input :rent_price, placeholder: '5' %>
         <%= f.input :sun_exposure, collection: ["Direct", "Indirect"] %>
+        <%= f.input :watering, placeholder: 'ex: Water 0.5L once per week and mist leaves.' %>
 
         <div class="custom-control custom-switch">
           <input type="checkbox" class="custom-control-input" id="customSwitch3" name="plant[organic]">
@@ -28,11 +29,10 @@
           <label class="custom-control-label" for="customSwitch5">Available for Purchase</label>
        </div>
 
-
         <%= f.input :buy_price, placeholder: '25' %>
         <%= f.input :address, placeholder: 'Enter the address for the location of the plant.' %>
         <%= f.input :description, placeholder: 'A feathery plant with a 100% green effect.' %>
-        <%= f.input :care, placeholder: 'Water 0.5L once per week and mist leaves.' %>
+        <%= f.input :care, placeholder: 'Cats are drawn to the smell so watch for them trying to eat the leaves.' %>
         <%= f.input :photo, as: :file %>
         <%= f.submit "Confirm", class: "btn btn-primary" %> <%= link_to "back", plants_path, class: "btn btn-secondary" %>
       <% end %>
