@@ -36,7 +36,13 @@
     <% else %>
       <h1 class="userpage-name"><%= @user.first_name %> <%= @user.last_name %></h1>
     <% end %>
-      <a href=""><i>0 star</i> <span>0 reviews</span></a>
+      <% if @user.reviews.any? %>
+        <% @rate = @array / @user.reviews.count %>
+        <% @rate.round(2) %>
+        <a href=""><i><%= @rate %> stars</i> <span> - <%= @user.reviews.count %> reviews</span></a>
+      <% else %>
+        <a href=""><i><%= 0 %> star</i> <span> - <%= 0 %> review</span></a>
+      <% end %>
     </div>
   </div>
 
@@ -96,10 +102,13 @@
     <% if @user.reviews.any? %>
       <% @user.reviews.each do |review| %>
       <div class="card-userpage-biotitle">
+        <div>
+          <%= cl_image_tag review.plant.photo.key, crop: :fill, class:"index-card-image"%>
+        </div>
         <div class="card-userpage-biotext">
           <div class="review-rating">
-            <h2>Rating:</h2>
-            <%= review.rating %>
+            <h2><%= review.plant.name %></h2>
+            <h2>Rating:</h2><h3><%= review.rating %> Stars</h3>
           </div>
           <p><%= review.content %></p>
           <% if current_user == @user %>

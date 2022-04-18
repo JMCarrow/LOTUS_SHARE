@@ -88,3 +88,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.review-rating {
+  display: flex;
+  h2, h3 {
+    font-size: 20px;
+    align-items: center;
+  }
+  h3 {
+    margin-left: 1rem;
+  }
+}

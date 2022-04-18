@@ -79,13 +79,13 @@ ActiveRecord::Schema.define(version: 2022_04_18_160722) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "starts_at"
     t.string "ends_at"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.index ["plant_id"], name: "index_reservations_on_plant_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
+    t.float "rating"
     t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

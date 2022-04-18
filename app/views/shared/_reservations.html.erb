@@ -3,108 +3,124 @@
   <div class="dash-onglet-title">
     <h3>My Current Reservations</h3>
   </div>
-  <table class="table table-responsive-xl table-hover">
-    <thead>
-      <tr>
-        <th scope="col" class="dash-title" >Reservation Dates</th>
-        <th scope="col" class="dash-title">Plant Rented</th>
-        <th scope="col" class="dash-title">Plant Owner</th>
-        <th scope="col" class="dash-title">Plant Location</th>
-        <th scope="col" class="dash-title edit">Change or return my reservation</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @reservations.each do |reservation| %>
-        <% unless reservation.returned? %>
-        <tr>
-          <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
-          <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
-          <td class="resa-info"><%= reservation.plant.user.first_name %></td>
-          <td class="resa-info"><%= reservation.plant.address %></td>
-          <div>
-            <td class="dash-link">
-              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
-              <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-            </td>
-            <%= render 'shared/modalresa', reservation: reservation %>
-          </div>
-        </tr>
-      <% end  %>
-     <% end  %>
-    </tbody>
-  </table>
+  <div>
+    <% if @reservations.any? %>
+      <table class="table table-responsive-xl table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="dash-title" >Reservation Dates</th>
+            <th scope="col" class="dash-title">Plant Rented</th>
+            <th scope="col" class="dash-title">Plant Owner</th>
+            <th scope="col" class="dash-title">Plant Location</th>
+            <th scope="col" class="dash-title edit">Change or return my reservation</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @reservations.each do |reservation| %>
+              <% unless reservation.returned? %>
+              <tr>
+                <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+                <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
+                <td class="resa-info"><%= reservation.plant.user.first_name %></td>
+                <td class="resa-info"><%= reservation.plant.address %></td>
+                <div>
+                  <td class="dash-link">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+                    <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                  </td>
+                  <%= render 'shared/modalresa', reservation: reservation %>
+                </div>
+              </tr>
+              <% end  %>
+            <% end  %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="user-noresult">
+        <h1>You don't have any reservations for now, discover our selection</h1>
+        <button type="button" class="btn btn-success"><%= link_to "Here", plants_path%></button>
+      </div>
+    <% end  %>
+  </div>
   <br>
   <div class="dash-onglet-title">
   <h3>My Current Loans to Others</h3>
   </div>
-  <table class="table table-responsive-xl table-hover">
-    <thead>
-      <tr>
-        <th scope="col" class="dash-title">Plant Name</th>
-        <th scope="col" class="dash-title">Client Name</th>
-        <th scope="col" class="dash-title">Client Contact</th>
-        <th scope="col" class="dash-title">Reserved dates</th>
-        <th scope="col" class="dash-title">Client Location</th>
-        <th scope="col" class="dash-title edit">Manage the order</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
-        <% unless reservation.completed? %>
-        <tr>
-          <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
-          <td class="resa-info"><%= clientreservation.user.first_name %></td>
-          <td class="resa-info"><%= clientreservation.user.email %></td>
-          <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
-          <td class="resa-info"><%= clientreservation.plant.address %></td>
-<!--- This is where I need to create the order confrimation buttons--->
-        <div>
-          <td class="dash-link">
-            <%= link_to 'Accept Order', accept_reservation_path(reservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-            <%= link_to 'Confirm Returned', complete_reservation_path(reservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-          </td>
-
-        </div>
-<!--- This is the end of where am creating confirmation buttons--->
-        <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
-      </tr>
-      <% end  %>
-      <% end  %>
-    </tbody>
-  </table>
-  <br>
-  <!--- This is where I have started to insert the past orders --->
-  <div class="dash-onglet-title">
-  <h3>My Past Reservations</h3>
+  <div>
+    <% if @clientreservations.any? %>
+      <table class="table table-responsive-xl table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="dash-title">Plant Name</th>
+            <th scope="col" class="dash-title">Client Name</th>
+            <th scope="col" class="dash-title">Client Contact</th>
+            <th scope="col" class="dash-title">Reserved dates</th>
+            <th scope="col" class="dash-title">Client Location</th>
+            <th scope="col" class="dash-title edit">Manage the order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
+            <% unless reservation.completed? %>
+              <tr>
+                <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
+                <td class="resa-info"><%= clientreservation.user.first_name %></td>
+                <td class="resa-info"><%= clientreservation.user.email %></td>
+                <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
+                <td class="resa-info"><%= clientreservation.plant.address %></td>
+                <div>
+                  <td class="dash-link">
+                    <%= link_to 'Accept Order', accept_reservation_path(reservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                    <%= link_to 'Confirm Returned', complete_reservation_path(reservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                  </td>
+                </div>
+                <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
+              </tr>
+            <% end  %>
+          <% end  %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="user-noresult">
+        <h1>Sorry you don't have any loans</h1>
+      </div>
+    <% end  %>
   </div>
-  <table class="table table-responsive-xl table-hover">
-    <thead>
-      <tr>
-        <th scope="col" class="dash-title" >Reservation Dates</th>
-        <th scope="col" class="dash-title">Plant Rented</th>
-        <th scope="col" class="dash-title">Plant Owner</th>
-        <th scope="col" class="dash-title">Plant Location</th>
-        <th scope="col" class="dash-title edit">Review this Shop</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @reservations.each do |reservation| %>
-      <tr>
-          <% if reservation.returned == true || reservation.completed == true %>
-          <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
-          <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
-          <td class="resa-info"><%= reservation.plant.user.first_name %></td>
-          <td class="resa-info"><%= reservation.plant.address %></td>
-          <div>
-            <td class="dash-link">
-               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewModal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
-            </td>
-          </div>
-          <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
-          <% end %>
-        </tr>
-      <% end  %>
-    </tbody>
-  </table>
-    <!--- This is where I have finished inserting the past orders --->
+  <br>
+  <div>
+    <% if @reservations.any? %>
+      <div class="dash-onglet-title">
+      <h3>My Past Reservations</h3>
+      </div>
+      <table class="table table-responsive-xl table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="dash-title" >Reservation Dates</th>
+            <th scope="col" class="dash-title">Plant Rented</th>
+            <th scope="col" class="dash-title">Plant Owner</th>
+            <th scope="col" class="dash-title">Plant Location</th>
+            <th scope="col" class="dash-title edit">Review this Shop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reservations.each do |reservation| %>
+            <% if reservation.returned == true || reservation.completed == true %>
+            <tr>
+              <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+              <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
+              <td class="resa-info"><%= link_to reservation.plant.user.first_name , user_path(reservation.plant.user) %></td>
+              <td class="resa-info"><%= reservation.plant.address %></td>
+                <div>
+                  <td class="dash-link">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewModal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
+                  </td>
+                </div>
+                <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
+              </tr>
+            <% end %>
+          <% end  %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>
