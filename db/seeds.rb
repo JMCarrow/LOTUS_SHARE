@@ -125,4 +125,10 @@ plant.photo.attach(io: croton, filename: 'croton.png', content_type: 'image/png'
 plant.save
 puts "Created #{plant.name}"
 
+orchid = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650289915/g1enaszgvdsxjkf0v62n.jpg')
+plant = Plant.new(name: "Orchid", size: "Medium", environment: "Indoor", species: "Orchidaceae", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Blue", availabe_for_purchase: false, buy_price: nil, address: "35 Rue du Chevalier de la Barre, 75018 Paris", description: "Airy and delicate to set a springtime mood!", watering: "Water 100ml once per week.", care: "Keep in a well lit room and make sure the soil is not too damp and there is proper drainage.", user: User.all.sample)
+plant.photo.attach(io: orchid, filename: 'orchid.png', content_type: 'image/png')
+plant.save
+puts "Created #{plant.name}"
+
 puts "Finished!"
