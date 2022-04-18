@@ -1,0 +1,41 @@
+<div class="container index-title">
+  <div>
+    <br>
+    <h1 class="text-center">Discover Your Nearby Florist!</h1>
+    <p class="text-center">If you're looking to brighten up your home or are simply looking for something to show off to guests, then a plant may well be the thing to rent! And in the past few years, there has been a real resurgence in the popularity of houseplants, leading to a boom in plant shop openings across Paris. Here's the best shops to purchase them!
+    Lotus know your favorite shops!</p>
+  </div>
+</div>
+
+<div class="container index-ddown">
+  <%= render 'shared/ddown' %>
+</div>
+
+<div class="user-map">
+  <% if @users.any? %>
+    <div class="card-container">
+      <% @users.each do |user| %>
+        <% if user.professional? %>
+        <div class="user-card">
+          <%= link_to user_path(user) do %>
+            <div class="index-card-body">
+              <div class="card-image">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                <% end %>
+              </div>
+              <div class="index-card-info">
+                <h5 class="index-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35) + "..."%></h5>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="noresult">
+    <h1>Sorry you're selection is empty.</h1>
+    </div>
+  <% end  %>
+
