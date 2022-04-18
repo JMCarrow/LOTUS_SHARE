@@ -49,4 +49,40 @@
 
   <%= render 'shared/ddown' %>
 
+  <% if @user.plants.any? %>
+    <div class="card-container">
+      <% @user.plants.each do |plant| %>
+        <div class="plant-card">
+          <%= link_to plant_path(plant) do %>
+            <div class="index-card-body">
+              <div class="card-image">
+                <% if plant.photo.attached? %>
+                  <%= cl_image_tag plant.photo.key, crop: :fill, class:"index-card-image"%>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <% if current_user == plant.user %>
+            <div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%= plant.name %></li>
+                  <li class="list-group-item"><%= plant.size %></li>
+                  <li class="list-group-item"><%= plant.environment %></li>
+                </ul>
+              <div class="index-card-link">
+                <%= link_to '', plant_path(plant), method: :update, class:"fa-solid fa-pen-to-square"%>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">update</button>
+                <%= link_to '', plant_path(plant), method: :delete, data: { confirm: "Are you sure you want to delete this offer?"}, class:"fa-solid fa-trash-can"%>
+                <%= render 'shared/modalplantupdate', plant: plant %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="noresult">
+    <h1>Sorry you're selection is empty</h1>
+    </div>
+  <% end  %>
 </div>
