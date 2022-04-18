@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :photo, presence: true
 
-  has_many :reviews, dependent: :destroy
+
   has_many :reservations, dependent: :destroy
   has_many :plants
+  has_many :reviews, through: :plants
 end
