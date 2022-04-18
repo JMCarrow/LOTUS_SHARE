@@ -15,6 +15,14 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
+  def accept?
+    true
+  end
+
+  def complete?
+    true
+  end
+
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
