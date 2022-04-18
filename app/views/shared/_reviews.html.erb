@@ -1,7 +1,19 @@
-
-<div>
-<td class="dash-link">
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">new</button>
-    <%= link_to 'Return', review_path(review), method: :new, data: { confirm: "Thank you for using Lotus Share"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-</td>
-</div>
+<div class="container dash-container">
+  <div class="dash-onglet-title">
+    <h3>My Reviews</h3>
+  </div>
+  <table class="table table-responsive-xl table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="dash-title" >Reviewer</th>
+        <th scope="col" class="dash-title">Rating</th>
+        <th scope="col" class="dash-title">Content</th>
+      </tr>
+    </thead>
+    <tbody>
+    <div>
+        <td class="dash-link">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">Review this Shop</button>
+        </td>
+    </div>
+    </tbody>

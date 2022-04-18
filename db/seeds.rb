@@ -15,14 +15,14 @@ puts "Cleaning Database!"
 
 puts "Creating users..."
 
-mimi = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863403/pjajeppphezmcuta1n0q.jpg')
+mimi = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283602/cpxlg3rjceanrvjudpak.jpg')
 user = User.new(first_name: "Mimi", last_name: "Dou", email: "test1@gmail.com", password: "123456", professional: false, healer: false)
 user.photo.attach(io: mimi, filename: 'mimi.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
 
 bob = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863546/situphgz4uta5zfemnwn.jpg')
-user = User.new(first_name: "Bob", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true)
+user = User.new(first_name: "Bobby", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true)
 user.photo.attach(io: bob, filename: 'bob.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
@@ -30,6 +30,24 @@ puts "Created #{user.first_name}"
 sara = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863641/vuv45dhhxrd6zhpuatwt.jpg')
 user = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium")
 user.photo.attach(io: sara, filename: 'sara.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+douglas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283926/ddbzxug7mj8puck4odsd.jpg')
+user = User.new(first_name: "Douglas", last_name: "Woodrow", email: "test4@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
+user.photo.attach(io: douglas, filename: 'douglas.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+janeth = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284183/gmysu8b7xmbfge0xfbei.jpg')
+user = User.new(first_name: "Janeth", last_name: "Strickland", email: "test5@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Corner Floral Boutique", minority_owned: true)
+user.photo.attach(io: janeth, filename: 'douglas.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+cameron = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284463/kbvhwvpjlo9lzaewyisp.jpg')
+user = User.new(first_name: "Cameron", last_name: "Lambert", email: "test6@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Your Queer Corner Florist", minority_owned: true)
+user.photo.attach(io: cameron, filename: 'cameron.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
 

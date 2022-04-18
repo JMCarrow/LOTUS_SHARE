@@ -33,6 +33,14 @@ class ReservationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def return
+    @reservation = Reservation.find(params[:id])
+    @reservation.returned = true
+    @reservation.save
+    authorize @reservation
+    redirect_to dashboard_path
+  end
+
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
@@ -44,7 +52,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:starts_at, :ends_at, :delivered, :address, :plant_id, :user_id)
+    params.require(:reservation).permit(:starts_at, :ends_at, :delivered, :address, :plant_id, :user_id, :returned)
   end
 
 end

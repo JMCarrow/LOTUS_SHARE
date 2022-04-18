@@ -1,7 +1,7 @@
 
 <div class="container dash-container">
   <div class="dash-onglet-title">
-    <h3>My reservations</h3>
+    <h3>My Current Reservations</h3>
   </div>
   <table class="table table-responsive-xl table-hover">
     <thead>
@@ -15,6 +15,7 @@
     </thead>
     <tbody>
       <% @reservations.each do |reservation| %>
+        <% unless reservation.returned? %>
         <tr>
           <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
           <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
@@ -23,17 +24,18 @@
           <div>
             <td class="dash-link">
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
-              <%= link_to 'Return', reservation_path(reservation), method: :delete, data: { confirm: "Thank you for using Lotus Share"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+              <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
             </td>
           </div>
           <%= render 'shared/modalresa', reservation: reservation %>
         </tr>
       <% end  %>
+     <% end  %>
     </tbody>
   </table>
   <br>
   <div class="dash-onglet-title">
-  <h3>Current loans</h3>
+  <h3>My Current Loans to Others</h3>
   </div>
   <table class="table table-responsive-xl table-hover">
     <thead>
@@ -64,6 +66,43 @@
       <% end  %>
     </tbody>
   </table>
+ <br>
+<!--- This is where I have started to insert the past orders --->
+<div class="dash-onglet-title">
+    <h3>My Past Reservations</h3>
+  </div>
+  <table class="table table-responsive-xl table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="dash-title" >Reservation Dates</th>
+        <th scope="col" class="dash-title">Plant Rented</th>
+        <th scope="col" class="dash-title">Plant Owner</th>
+        <th scope="col" class="dash-title">Plant Location</th>
+        <th scope="col" class="dash-title edit">Review this Shop</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+        <% if reservation.returned? %>
+          <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+          <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
+          <td class="resa-info"><%= reservation.plant.user.first_name %></td>
+          <td class="resa-info"><%= reservation.plant.address %></td>
+          <div>
+            <td class="dash-link">
+              <!--- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button> --->
+              <%= link_to 'Leave a Review', reservation_path(reservation), method: :delete, data: { confirm: "Thank you for using Lotus Share"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+            </td>
+          </div>
+          <%= render 'shared/modalresa', reservation: reservation %>
+        </tr>
+      <% end  %>
+    <% end  %>
+    </tbody>
+  </table>
+  <!--- This is where I have finished inserting the past orders --->
+  
   <div class="dash-back">
     <%= link_to "back", plants_path, class: "btn btn-secondary", style: "padding-left: 20px; padding-right: 20px" %>
   </div>
