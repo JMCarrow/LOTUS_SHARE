@@ -69,7 +69,7 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     @plant.destroy
     authorize @plant
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   private

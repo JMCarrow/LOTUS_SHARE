@@ -9,8 +9,8 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for([plant, review]) do |f| %>
-          <%= f.input :rating, as: :integer, required: true %>
-          <%= f.input :content, as: :string, required: false %>
+          <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], required: true %>
+          <%= f.input :content, as: :text, required: false %>
           <%= f.submit class: "btn btn-primary text-center" %>
         <% end %>
       </div>
