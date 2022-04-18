@@ -11,12 +11,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @plant = Plant.find(params[:plant_id])
-    @review.plant_id = @plant
+    @review.plant = @plant
     authorize @review
-    if @review.save
-      redirect_to dashboard_path
-    else
-      render :new
+    if @review.save!
+      redirect_to user_path(@plant.user)
     end
   end
 

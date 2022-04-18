@@ -31,6 +31,11 @@
   margin-left: 1rem;
 }
 
+.user-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .card-userpage-biotitle {
   margin-top: 2rem;
   overflow: hidden;
