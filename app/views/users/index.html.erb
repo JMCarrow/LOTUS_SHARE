@@ -6,30 +6,55 @@
     Lotus know your favorite shops!</p>
   </div>
 </div>
-
-<div class="container index-ddown">
-  <%= render 'shared/ddown' %>
-</div>
+<br>
 <div class="container">
-<div class="user-map">
-  <% if @users.any? %>
-    <div class="card-container">
-      <% @users.each do |user| %>
-        <% if user.professional? %>
-        <div class="user-card">
-          <%= link_to user_path(user) do %>
-            <div class="index-card-body">
-              <div class="card-image">
-                <% if user.photo.attached? %>
-                  <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
-                <% end %>
-              </div>
-              <div class="index-card-info">
-                <h5 class="index-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
+  <div class="user-map">
+    <% if @users.any? %>
+      <div class="card-container">
+        <% @users.each do |user| %>
+          <% if user.professional? %>
+          <div class="user-card">
+            <%= link_to user_path(user) do %>
+              <div class="user-card-body">
+                <div class="card-image">
+                  <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                  <% end %>
+                </div>
+                <div class="user-card-info">
+                  <h5 class="user-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35)%></h5>
+                  <div class="user-card-text">
+                    <% if user.reviews.any? %>
+                      <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %> stars - <%= user.reviews.count %> reviews</span>
+                    <% else %>
+                      <span><%= 0 %> star - <%= 0 %> review</span>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
             <% end %>
-            </div>    
+          </div>
+          <% elsif user.healer? %>
+          <div class="user-card">
+            <%= link_to user_path(user) do %>
+              <div class="user-card-body">
+                <div class="card-image">
+                  <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                  <% end %>
+                </div>
+                <div class="user-card-info">
+                  <h5 class="user-card-title"><%= user.first_name.length < 35 ? user.first_name : user.first_name.first(35)%></h5>
+                  <div class="user-card-text">
+                    <% if user.reviews.any? %>
+                      <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %> stars - <%= user.reviews.count %> reviews</span>
+                    <% else %>
+                      <span><%= 0 %> star - <%= 0 %> review</span>
+                    <% end %>
+                  </div>
+                </div>
+           </div>    
        <!--- Started from here to make all user index--->
        <% elsif user.professional == false %>
        <div class="user-card">
