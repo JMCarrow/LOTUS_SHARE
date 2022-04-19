@@ -17,6 +17,8 @@ class UsersController < ApplicationController
       @users = User.where(professional: params[:professional])
     elsif params[:healer]
       @users = User.where(healer: params[:healer])
+    else
+      @users = User.all
     end
   end
 
