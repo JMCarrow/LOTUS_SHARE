@@ -13,6 +13,7 @@
             <%= f.input :name, as: :string, required: true %>
             <%= f.input :size, collection: ["Large", "Medium", "Small"], required: true %>
             <%= f.input :environment, collection: ["Indoor", "Outdoor"], required: true %>
+            <%= f.input :photo, as: :file, required: true %>
         <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update plant info" %></p>
         <% end %>
       </div>

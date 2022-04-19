@@ -9,7 +9,7 @@ class CreatePlants < ActiveRecord::Migration[6.1]
       t.integer :rent_price
       t.integer :buy_price
       t.string :address
-      t.string :description
+      t.text :description
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -4,6 +4,6 @@ class AddColumnsToPlants < ActiveRecord::Migration[6.1]
     add_column :plants, :height, :string
     add_column :plants, :flower_color, :string
     add_column :plants, :sun_exposure, :string
-    add_column :plants, :care, :string
+    add_column :plants, :care, :text
   end
 end
