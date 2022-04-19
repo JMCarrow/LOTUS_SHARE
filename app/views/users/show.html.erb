@@ -59,8 +59,7 @@
     <% end %>
       <% if @user.reviews.any? %>
         <% @rate = @array / @user.reviews.count %>
-        <% @rate.round(2) %>
-        <a href=""><i><%= @rate %> stars</i> <span> - <%= @user.reviews.count %> reviews</span></a>
+        <a href=""><i><%= @rate.round(1) %> stars</i> <span> - <%= @user.reviews.count %> reviews</span></a>
       <% else %>
         <a href=""><i><%= 0 %> star</i> <span> - <%= 0 %> review</span></a>
       <% end %>
