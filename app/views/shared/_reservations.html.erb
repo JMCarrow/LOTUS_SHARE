@@ -24,13 +24,25 @@
                 <td class="resa-info"><%= link_to reservation.plant.user.first_name, user_path(reservation.plant.user) %></td>
                 <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
+                <!--- If the reservation has been accepted the reservation can no longer be edited by the requestor--->
+                <% if reservation.delivered? %>
                   <td class="dash-link">
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateresamodal" style="padding-left: 20px; padding-right: 20px">update</button>
+                    <p> Your reservation has been accepted!</p>
                     <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
                   </td>
                   <%= render 'shared/modalresa', reservation: reservation %>
                 </div>
               </tr>
+                <% else %>
+                  <td class="dash-link">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateresamodal" style="padding-left: 20px; padding-right: 20px">Update</button>
+                    <%= link_to 'Cancel', reservation_path(reservation), method: :delete, data: { confirm: "Your reservation has been cancelled. A message has been sent to the owner."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-outline-danger"%>
+                  </td>
+                  <%= render 'shared/modalresa', reservation: reservation %>
+                </div>
+              </tr>
+              <% end  %>
+              <!--- End the delivered if statement --->
               <% end  %>
             <% end  %>
         </tbody>
@@ -69,13 +81,25 @@
                 <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
                 <td class="resa-info"><%= clientreservation.plant.address %></td>
                 <div>
-                  <td class="dash-link">
+                <!---If the deservation has been accepted, the accept button disappears--->
+                <% if reservation.delivered == false %>
+                    <td class="dash-link">
                     <%= link_to 'Accept Order', accept_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                     <%= link_to 'Decline Order', reservation_path(clientreservation), method: :delete, data: { confirm: "The request has been declined. A message has been sent to the requestor."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-danger"%>
+                <% elsif reservation.delivered && reservation.returned == false %>
+                    <td class="dash-link">
+                    <p>You have accepted the reservation and are pending the borrowing returning the item.</p>
+                  </td>
+                <% else reservation.delivered && reservation.returned? %>
+                    <td class="dash-link">
+                    <p>The renter has signaled that the plant has been returned.</p>
                     <%= link_to 'Confirm Returned', complete_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
                   </td>
+                <% end %>  
                 </div>
                 <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
               </tr>
+            <!--- End the delivered if statement --->
             <% end  %>
           <% end  %>
         </tbody>
@@ -90,7 +114,7 @@
   <div>
     <% if @reservations.any? %>
       <div class="dash-onglet-title">
-      <h3>My Past Reservations</h3>
+      <h3>My Past Reservations and Loans</h3>
       </div>
       <table class="table table-responsive-xl table-hover">
         <thead>
