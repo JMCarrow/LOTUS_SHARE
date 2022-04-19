@@ -1,3 +1,60 @@
 .carousel-render {
 margin: 3rem;
 }
+
+.carousel-inner {
+  height: 55vh;
+}
+
+.car-card {
+  width: 25vw;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.car-card:hover {
+  .car-card-info {
+    background-color: #F7F7F7;
+  }
+  .car-card-image {
+    opacity: 0.8;
+  }
+}
+
+.car-card-image {
+  height: 15rem;
+  width: 25vw;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.car-card-body {
+  border-radius: 5px 5px 0 0;
+}
+
+.car-card-info {
+  width: 25vw;
+  padding: 0.5rem;
+  height: 17vh;
+  border-radius: 0 0 5px 5px;
+  border: solid #F7F7F7;
+}
+
+.car-card-title {
+  font-weight: 300;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.car-card-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  span {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

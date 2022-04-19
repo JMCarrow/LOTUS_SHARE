@@ -91,8 +91,9 @@
     </div>
   </div>
   <br>
-
-  <h2>My plants</h2>
+  <div class="myplants-add">
+    <h3>My plants  <%= link_to "Add a plant", new_plant_path(@user), class: "fa-solid fa-plus" %></h3>
+  </div>
   <% if @user.plants.any? %>
     <div class="user-card-container">
       <% @user.plants.each do |plant| %>

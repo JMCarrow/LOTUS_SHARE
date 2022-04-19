@@ -39,14 +39,25 @@
   margin-left: 1rem;
 }
 
+.myplants-add {
+  display: flex;
+  align-items: center;
+  .fa-plus {
+    margin-left: 1rem;
+    color: black;
+    font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  }
+}
+
 .user-map {
   display: flex;
 }
 
 .user-card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  max-width: 90vw;
   padding-left: 1rem;
   padding-right: 1rem;
 }
