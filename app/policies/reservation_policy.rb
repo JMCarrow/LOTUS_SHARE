@@ -19,6 +19,14 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
+  def reviewed?
+    true
+  end
+
+  def declined?
+    true
+  end
+
   def complete?
     true
   end

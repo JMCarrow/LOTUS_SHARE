@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             <% @reservations.each do |reservation| %>
-              <% unless reservation.returned? %>
+              <% unless reservation.completed? %>
               <tr>
                 <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
                 <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
@@ -25,7 +25,14 @@
                 <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
                 <!--- If the reservation has been accepted the reservation can no longer be edited by the requestor--->
-                <% if reservation.delivered? %>
+                <% if  reservation.returned? && reservation.completed == false %>
+                  <td class="dash-link">
+                    <p> Pending return confirmation from the owner.</p>
+                  </td>
+                  <%= render 'shared/modalresa', reservation: reservation %>
+                </div>
+              </tr>                
+                <% elsif  reservation.delivered? %>
                   <td class="dash-link">
                     <p> Your reservation has been accepted!</p>
                     <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
@@ -33,6 +40,11 @@
                   <%= render 'shared/modalresa', reservation: reservation %>
                 </div>
               </tr>
+                <% elsif reservation.declined?%>
+                  <td class="dash-link">
+                    <p> Warning! Your reservation has been DECLINED!</p>
+                    <%= link_to 'Remove', reservation_path(reservation), method: :delete, data: { confirm: "The request has been removed from your queue."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-outline-danger"%>
+                  </td>
                 <% else %>
                   <td class="dash-link">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateresamodal" style="padding-left: 20px; padding-right: 20px">Update</button>
@@ -73,7 +85,7 @@
         </thead>
         <tbody>
           <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
-            <% unless clientreservation.completed? %>
+            <% unless clientreservation.completed? || clientreservation.declined?%>
               <tr>
                 <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
                 <td class="resa-info"><%= clientreservation.user.first_name %></td>
@@ -82,15 +94,19 @@
                 <td class="resa-info"><%= clientreservation.plant.address %></td>
                 <div>
                 <!---If the deservation has been accepted, the accept button disappears--->
-                <% if reservation.delivered == false %>
+                <% if clientreservation.delivered == false %>
                     <td class="dash-link">
                     <%= link_to 'Accept Order', accept_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-                     <%= link_to 'Decline Order', reservation_path(clientreservation), method: :delete, data: { confirm: "The request has been declined. A message has been sent to the requestor."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-danger"%>
-                <% elsif reservation.delivered && reservation.returned == false %>
+                     <%= link_to 'Decline Order', declined_reservation_path(clientreservation), data: { confirm: "The request has been declined. A message has been sent to the requestor."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-danger"%>
+                <% elsif clientreservation.delivered && clientreservation.returned == false %>
                     <td class="dash-link">
                     <p>You have accepted the reservation and are pending the borrowing returning the item.</p>
                   </td>
-                <% else reservation.delivered && reservation.returned? %>
+                <% elsif clientreservation.declined? %>
+                    <td class="dash-link">
+                    <p>The request has been declined.</p>
+                  </td>
+                <% else clientreservation.delivered && clientreservation.returned? %>
                     <td class="dash-link">
                     <p>The renter has signaled that the plant has been returned.</p>
                     <%= link_to 'Confirm Returned', complete_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
@@ -112,32 +128,61 @@
   </div>
   <br>
   <div>
-    <% if @reservations.any? %>
+    <% if @reservations.any? || @clientreservations.any? %>
       <div class="dash-onglet-title">
       <h3>My Past Reservations and Loans</h3>
       </div>
       <table class="table table-responsive-xl table-hover">
         <thead>
           <tr>
-            <th scope="col" class="dash-title" >Reservation Dates</th>
-            <th scope="col" class="dash-title">Plant Rented</th>
+            <th scope="col" class="dash-title">Reservation Dates</th>
+            <th scope="col" class="dash-title">Rented or Loaned</th>
+            <th scope="col" class="dash-title">Plant</th>
             <th scope="col" class="dash-title">Plant Owner</th>
             <th scope="col" class="dash-title">Plant Location</th>
-            <th scope="col" class="dash-title edit">Review this Shop</th>
+            <th scope="col" class="dash-title edit">Status</th>
           </tr>
         </thead>
         <tbody>
           <% @reservations.each do |reservation| %>
-            <% if reservation.returned == true || reservation.completed == true %>
+            <% if reservation.returned == true && reservation.completed == true %>
             <tr>
               <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+              <td class="resa-info role"> Rental </th>
               <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
               <td class="resa-info"><%= link_to reservation.plant.user.first_name , user_path(reservation.plant.user) %></td>
               <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
-                  <td class="dash-link">
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalreview<%= reservation.id %>" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
-                  </td>
+              <% if reservation.plant.user != current_user && reservation.reviewed == false %>
+                <td class="dash-link">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalreview<%= reservation.id %>" style="padding-left: 20px; padding-right: 20px">Pending Review</button>
+               </td>
+              <% else  %>
+                <td class="resa-info review-status"> Review Complete </th>
+              <% end %>
+
+                </div>
+              </tr>
+            <% end %>
+          <% end  %>
+          <!--- Add the client reservations --->
+          <% @clientreservations.each do |clientreservation| %>
+            <% if clientreservation.returned == true && clientreservation.completed == true %>
+            <tr>
+              <td class="resa-info resa-date">From <%= clientreservation.starts_at %> to <%= clientreservation.ends_at %></th>
+              <td class="resa-info role"> Loan </th>
+              <td class="resa-info"><%= link_to clientreservation.plant.name , plant_path(clientreservation.plant) %></td>
+              <td class="resa-info"><%= link_to clientreservation.plant.user.first_name , user_path(clientreservation.plant.user) %></td>
+              <td class="resa-info"><%= clientreservation.plant.address %></td>
+                <div>
+              <% if clientreservation.plant.user != current_user && clientreservation.reviewed == false %>
+                <td class="dash-link">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalreview<%= clientreservation.id %>" style="padding-left: 20px; padding-right: 20px">Pending Review</button>
+               </td>
+              <% else %>
+                <td class="resa-info loan-status"> Loan Complete </th>
+              <% end %>
+
                 </div>
               </tr>
             <% end %>

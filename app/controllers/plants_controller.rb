@@ -65,6 +65,13 @@ class PlantsController < ApplicationController
     redirect_to user_path(@plant.user)
   end
 
+  def available
+    @plant = Plant.find(params[:id])
+    @plant.available = false
+    authorize @plant
+    redirect_to dashboard_path
+  end
+
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy

@@ -57,6 +57,22 @@ class ReservationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def reviewed
+    @reservation = Reservation.find(params[:id])
+    @reservation.reviewed = true
+    @reservation.save
+    authorize @reservation
+    redirect_to dashboard_path
+  end
+
+  def declined
+    @reservation = Reservation.find(params[:id])
+    @reservation.declined = true
+    @reservation.save
+    authorize @reservation
+    redirect_to dashboard_path
+  end
+
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
