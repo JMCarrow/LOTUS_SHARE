@@ -56,6 +56,14 @@
 
 .user-card-container {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 90vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.profil-card-container {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   max-width: 90vw;
   padding-left: 1rem;
