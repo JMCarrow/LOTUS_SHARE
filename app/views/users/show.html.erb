@@ -59,9 +59,9 @@
     <% end %>
       <% if @user.reviews.any? %>
         <% @rate = @array / @user.reviews.count %>
-        <a href=""><i><%= @rate.round(1) %> stars</i> <span> - <%= @user.reviews.count %> reviews</span></a>
+        <span><%= @rate.round(1) %> stars - <%= @user.reviews.count %> reviews</span>
       <% else %>
-        <a href=""><i><%= 0 %> star</i> <span> - <%= 0 %> review</span></a>
+        <span><%= 0 %> star - <%= 0 %> review</span>
       <% end %>
       <%= render 'shared/modalprofilupdate', user: @user %>
     </div>
@@ -90,9 +90,9 @@
       <% end %>
     </div>
   </div>
+  <br>
 
-  <%= render 'shared/ddown' %>
-
+  <h2>My plants</h2>
   <% if @user.plants.any? %>
     <div class="user-card-container">
       <% @user.plants.each do |plant| %>
@@ -151,8 +151,7 @@
         </div>
         <div class="card-userpage-reviewtext">
           <div class="review-rating">
-            <h2><%= review.plant.name %></h2>
-            <h2>Rating:</h2><h3><%= review.rating %> Stars</h3>
+            <h2><%= review.plant.name %> Rating:</h2><h3><%= review.rating %> Stars</h3>
           </div>
           <p><%= review.content %></p>
         </div>
@@ -164,4 +163,5 @@
     </div>
     <% end  %>
   </div>
+  <br>
 </div>

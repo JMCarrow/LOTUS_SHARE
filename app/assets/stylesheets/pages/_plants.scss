@@ -34,6 +34,15 @@
   }
 }
 
+.plant-card:hover {
+  .index-card-info {
+background-color: #F7F7F7;
+  }
+  .index-card-image {
+    opacity: 0.8;
+  }
+}
+
 .index-card-info {
   padding: 0.5rem;
   max-height: 4rem;
@@ -43,15 +52,6 @@
   font-weight: 300;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-}
-
-.plant-card:hover {
-  .index-card-info {
-background-color: #F7F7F7;
-  }
-  .index-card-image {
-    opacity: 0.8;
-  }
 }
 
 .index-card-text {

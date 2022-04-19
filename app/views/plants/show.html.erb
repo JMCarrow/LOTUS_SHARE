@@ -5,8 +5,7 @@
     <div>
       <%= cl_image_tag @plant.photo.key, crop: :fill, class:"show-image" %>
       <div class="user-meta-info">
-        <p>This plant is owned by <strong><%= link_to @plant.user.first_name, "#" %></strong></p>
-        <a href=""><i>0 star</i> <span>0 reviews</span></a>
+        <p>This plant is owned by <strong><%= link_to @plant.user.first_name, user_path(@plant.user) %></strong></p>
       </div>
     </div>
   </div>

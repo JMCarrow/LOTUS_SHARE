@@ -39,13 +39,62 @@
   margin-left: 1rem;
 }
 
+.user-map {
+  display: flex;
+}
+
 .user-card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.user-map {
+.user-card {
+  padding: 1rem;
+  max-width: 15rem;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.user-card:hover {
+  .user-card-info {
+    background-color: #F7F7F7;
+  }
+  .user-card-image {
+    opacity: 0.8;
+  }
+}
+
+.user-card-body {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  height: 10vh;
+}
+
+.user-card-info {
+  padding: 0.5rem;
+  height: 5rem;
+}
+
+.user-card-title {
   display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.user-card-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  span {
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
 
 .card-userpage-biotitle {
@@ -85,6 +134,7 @@
   i {
     position: relative;
     right: -65rem;
+    top: -8rem;
   }
 }
 
