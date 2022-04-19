@@ -46,12 +46,19 @@
 .user-card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.user-card-image {
+  width: 100%;
+  height: 12rem;
 }
 
 .user-card {
   padding: 1rem;
   max-width: 15rem;
-
   a {
     text-decoration: none;
     color: black;
@@ -70,7 +77,6 @@
 .user-card-body {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  height: 10vh;
 }
 
 .user-card-info {
