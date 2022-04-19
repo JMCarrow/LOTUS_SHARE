@@ -1,8 +1,8 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="plant-update-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update informations</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update my plant informations</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,7 +13,7 @@
             <%= f.input :name, as: :string, required: true %>
             <%= f.input :size, collection: ["Large", "Medium", "Small"], required: true %>
             <%= f.input :environment, collection: ["Indoor", "Outdoor"], required: true %>
-        <p class="text-center"><%= f.submit class: "btn btn-secondary" %></p>
+        <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update plant info" %></p>
         <% end %>
       </div>
     </div>
