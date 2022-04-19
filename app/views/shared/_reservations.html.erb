@@ -25,7 +25,7 @@
                 <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
                   <td class="dash-link">
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding-left: 20px; padding-right: 20px">update</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateresamodal" style="padding-left: 20px; padding-right: 20px">update</button>
                     <%= link_to 'Return', return_reservation_path(reservation), data: { confirm: "Your return has been confirmed. Thank you for using Lotus Share!"}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
                   </td>
                   <%= render 'shared/modalresa', reservation: reservation %>
@@ -61,7 +61,7 @@
         </thead>
         <tbody>
           <% @clientreservations.zip(@reservations).each do |clientreservation, reservation| %>
-            <% unless reservation.completed? %>
+            <% unless clientreservation.completed? %>
               <tr>
                 <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
                 <td class="resa-info"><%= clientreservation.user.first_name %></td>
@@ -70,8 +70,8 @@
                 <td class="resa-info"><%= clientreservation.plant.address %></td>
                 <div>
                   <td class="dash-link">
-                    <%= link_to 'Accept Order', accept_reservation_path(reservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
-                    <%= link_to 'Confirm Returned', complete_reservation_path(reservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                    <%= link_to 'Accept Order', accept_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the order. A confirmation message has been sent to the renter."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
+                    <%= link_to 'Confirm Returned', complete_reservation_path(clientreservation), data: { confirm: "Thank you for confirming the item has been returned Successfully. A confirmation message has been sent to the renter and the item will be moved to your past orders."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-success"%>
                   </td>
                 </div>
                 <%= render 'shared/modalclientresa', clientreservation: clientreservation %>
@@ -112,7 +112,7 @@
               <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
                   <td class="dash-link">
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewModal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewmodal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
                   </td>
                 </div>
                 <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
