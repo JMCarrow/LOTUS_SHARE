@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Bio informations</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Bio information</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,8 +12,8 @@
         <%= simple_form_for @user do |f| %>
             <%= f.input :first_name, as: :string, required: true %>
             <%= f.input :last_name, as: :string, required: true %>
-            <%= f.input :photo, as: :file, required: true %>,
-        <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update my Profil" %></p>
+            <%= f.input :photo, as: :file, required: true %>
+        <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update my Profile" %></p>
         <% end %>
       </div>
     </div>
