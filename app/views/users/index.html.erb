@@ -10,49 +10,50 @@
 <div class="container index-ddown">
   <%= render 'shared/ddown' %>
 </div>
-
 <div class="container">
-  <div class="user-map">
-    <% if @users.any? %>
-      <div class="card-container">
-        <% @users.each do |user| %>
-          <% if user.professional? %>
-          <div class="user-card">
-            <%= link_to user_path(user) do %>
-              <div class="index-card-body">
-                <div class="card-image">
-                  <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
-                  <% end %>
-                </div>
-                <div class="index-card-info">
-                  <h5 class="index-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
-                </div>
+<div class="user-map">
+  <% if @users.any? %>
+    <div class="card-container">
+      <% @users.each do |user| %>
+        <% if user.professional? %>
+        <div class="user-card">
+          <%= link_to user_path(user) do %>
+            <div class="index-card-body">
+              <div class="card-image">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                <% end %>
               </div>
-            <% end %>
-          </div>
-          <% elsif user.healer? %>
-          <div class="user-card">
-            <%= link_to user_path(user) do %>
-              <div class="index-card-body">
-                <div class="card-image">
-                  <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
-                  <% end %>
-                </div>
-                <div class="index-card-info">
-                  <h5 class="index-card-title"><%= user.first_name.length < 35 ? user.first_name : user.first_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
-                </div>
+              <div class="index-card-info">
+                <h5 class="index-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
               </div>
+            </div>
             <% end %>
-          </div>
+            </div>    
+       <!--- Started from here to make all user index--->
+       <% elsif user.professional == false %>
+       <div class="user-card">
+          <%= link_to user_path(user) do %>
+            <div class="index-card-body">
+              <div class="card-image">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                <% end %>
+              </div>
+              <div class="index-card-info">
+                <h5 class="index-card-title"><%= user.first_name.length < 35 ? user.first_name + " " + user.last_name : user.first_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
+              </div>
+            </div>
+            <% end %>
+            </div>    
           <% end %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="noresult">
-      <h1>Sorry you're selection is empty.</h1>
-      </div>
-    <% end  %>
-  </div>
+       <!--- Ended all users elsif here--->
+      <% end %>
+    </div>
+  <% else %>
+    <div class="noresult">
+    <h1>Sorry you're selection is empty.</h1>
+    </div>
+  <% end  %>
+</div>
 </div>

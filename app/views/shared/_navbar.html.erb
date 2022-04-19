@@ -19,6 +19,9 @@
         <li class="nav-item">
           <%= link_to user_signed_in? ? "Rent or Buy a plant" : "Discover our plants", plants_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "View All Users", users_path, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Add a Plant", new_plant_path(@user), class: "nav-link" %>
