@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_160722) do
     t.integer "rent_price"
     t.integer "buy_price"
     t.string "address"
-    t.string "description"
+    t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_160722) do
     t.string "height"
     t.string "flower_color"
     t.string "sun_exposure"
-    t.string "care"
+    t.text "care"
     t.boolean "availabe_for_purchase"
     t.string "watering"
     t.float "latitude"

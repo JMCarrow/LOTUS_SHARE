@@ -1,3 +1,11 @@
+.container-form {
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("jungle.png") ;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+
 .index-title {
   padding: 1rem;
   margin-bottom: -2rem;
@@ -98,4 +106,23 @@
   width: 100vw;
   padding: 1rem;
   margin-top: 3rem;
+}
+
+.form-double {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-form {
+  min-width: 47%;
+}
+
+.form-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.control-input {
+  display: flex;
+  justify-content: space-evenly;
 }
