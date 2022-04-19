@@ -18,13 +18,14 @@
 .mission-content {
   font-weight: 200;
   text-align: center;
-  padding: 2px;
 }
 
 .mission-message {
   height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
 .lotus-photo {
@@ -37,8 +38,8 @@
 }
 
 .card-mission {
-  width: 20rem;
-  height: 13rem;
+  width: 25vw;
+  height: 28vh;
   border-radius: 10px;
 }
 

@@ -1,16 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lotus">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag asset_url('logo.png') %>
+    <%= "Lotus Share" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="container">
-    <div>
-      <h2 class="navbar-title">Lotus Share</h2>
-    </div>
-
+  <div class="container" id="navbar-container">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -25,9 +22,6 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Add a Plant", new_plant_path(@user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>

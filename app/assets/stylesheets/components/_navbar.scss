@@ -1,3 +1,8 @@
+#navbar-container {
+  display: flex;
+  justify-content: end;
+}
+
 .navbar-lotus {
   justify-content: space-between;
   background: white;
@@ -19,13 +24,10 @@
 
 .navbar-title {
   font-family: 'Montserrat', sans-serif;
-  position: relative;
-  left: -100px;
   padding-top: 0.5rem;
   color: #5F939A;
 }
 
-.navbar-nav {
-  position: relative;
-  left: 100px;
+.dropdown {
+  margin-left: 1rem;
 }
