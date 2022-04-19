@@ -112,15 +112,19 @@
               <td class="resa-info"><%= reservation.plant.address %></td>
                 <div>
                   <td class="dash-link">
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#reviewmodal" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalreview<%= reservation.id %>" style="padding-left: 20px; padding-right: 20px">Leave a Review!</button>
                   </td>
                 </div>
-                <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
               </tr>
             <% end %>
           <% end  %>
         </tbody>
       </table>
+      <% @reservations.each do |reservation| %>
+        <% if reservation.returned == true || reservation.completed == true %>
+            <%= render 'shared/modalreview', reservation: reservation, plant: reservation.plant, review: Review.new %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

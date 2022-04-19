@@ -1,18 +1,18 @@
-<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalreview<%= reservation.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="ModalLabel">Leave a Review</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Leave a Review</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <h5>Please leave a review on your reservation experience!</h5>
+      <h4>Please leave a review on your reservation experience!</h4>
         <%= simple_form_for([plant, review]) do |f| %>
-          <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], required: true %>
-          <%= f.input :content, as: :text, required: false %>
-          <%= f.submit class: "btn btn-primary text-center" %>
+            <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], required: true %>
+            <%= f.input :content, as: :text, required: false %>
+          <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Leave a review" %></p>
         <% end %>
       </div>
     </div>
