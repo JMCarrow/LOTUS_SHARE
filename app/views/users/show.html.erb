@@ -70,11 +70,17 @@
 
   <div class="card-userpage-biotitle">
     <div class="card-userpage-biotext">
+      <div class="Bio">
         <h2>Bio text</h2>
+      </div>
       <% if @user.bio? %>
-        <p><%= @user.bio %></p>
+        <div class="p-bio">
+          <p><%= @user.bio %></p>
+        </div>
       <% else %>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt voluptas quam minus! Beatae obcaecati aspernatur tempora, expedita omnis laudantium alias eligendi facilis cum facere perferendis odio error labore est!</p>
+        <div class="p-bio">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt voluptas quam minus! Beatae obcaecati aspernatur tempora, expedita omnis laudantium alias eligendi facilis cum facere perferendis odio error labore est!</p>
+        </div>
       <% end %>
       <% if current_user == @user %>
         <div class="bio-icone">
@@ -113,6 +119,16 @@
                 <%= render 'shared/modalplantupdate', plant: plant %>
               </div>
             </div>
+          <% else %>
+            <div class="index-card-body">
+              <div class="index-card-info">
+                <h5 class="index-card-title"><%= plant.name.length < 16 ? plant.name : plant.name.first(16) + "..."%></h5>
+                <div class="index-card-text">
+                  <p><%= plant.size %> - <%= plant.environment %></p>
+                  <span><%= plant.rent_price %>€ /Day</span>
+                </div>
+              </div>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -123,15 +139,17 @@
       <button type="button" class="btn btn-success"><%= link_to "Add a Plant", new_plant_path(@user)%></button>
     </div>
   <% end  %>
-  <div>
-    <h2>My reviews</h2>
+</div>
+<div class="container">
+  <h2>My reviews</h2>
+  <div class="review-container">
     <% if @user.reviews.any? %>
       <% @user.reviews.each do |review| %>
-      <div class="card-userpage-biotitle">
+      <div class="card-userpage-reviewphoto">
         <div>
           <%= cl_image_tag review.plant.photo.key, crop: :fill, class:"index-card-image"%>
         </div>
-        <div class="card-userpage-biotext">
+        <div class="card-userpage-reviewtext">
           <div class="review-rating">
             <h2><%= review.plant.name %></h2>
             <h2>Rating:</h2><h3><%= review.rating %> Stars</h3>
@@ -146,5 +164,4 @@
     </div>
     <% end  %>
   </div>
-  <br>
 </div>
