@@ -3,6 +3,10 @@
   margin-bottom: -2rem;
 }
 
+.plant-map {
+  display: flex;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -14,10 +18,6 @@
 .card-image {
   width: 100%;
   height: 12rem;
-}
-
-.plant-map {
-  display: flex;
 }
 
 #map {
@@ -36,7 +36,7 @@
 
 .plant-card:hover {
   .index-card-info {
-background-color: #F7F7F7;
+    background-color: #F7F7F7;
   }
   .index-card-image {
     opacity: 0.8;
