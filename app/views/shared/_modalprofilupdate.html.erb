@@ -1,4 +1,4 @@
-<div class="modal fade" id="bio-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="profil-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,9 +9,11 @@
       </div>
       <div class="modal-body">
       <h4>Please change your bio below</h4>
-        <%= simple_form_for user do |f| %>
-            <%= f.input :bio, as: :text, required: true %>
-        <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update my Bio" %></p>
+        <%= simple_form_for @user do |f| %>
+            <%= f.input :first_name, as: :string, required: true %>
+            <%= f.input :last_name, as: :string, required: true %>
+            <%= f.input :photo, as: :file, required: true %>,
+        <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update my Profil" %></p>
         <% end %>
       </div>
     </div>

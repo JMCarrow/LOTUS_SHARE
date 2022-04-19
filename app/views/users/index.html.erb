@@ -31,6 +31,21 @@
               </div>
             <% end %>
           </div>
+          <% elsif user.healer? %>
+          <div class="user-card">
+            <%= link_to user_path(user) do %>
+              <div class="index-card-body">
+                <div class="card-image">
+                  <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, crop: :fill, class:"index-card-image"%>
+                  <% end %>
+                </div>
+                <div class="index-card-info">
+                  <h5 class="index-card-title"><%= user.first_name.length < 35 ? user.first_name : user.first_name.first(35) + "..."%><i>   0 star</i> <span>0 reviews</span></a></h5>
+                </div>
+              </div>
+            <% end %>
+          </div>
           <% end %>
         <% end %>
       </div>
