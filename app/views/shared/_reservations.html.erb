@@ -234,7 +234,7 @@
                       <% if reservation.plant.user != current_user && reservation.reviewed == false %>
                         <td class="resa-info">
                           <div class="d-flex" style="justify-content: space-evenly;">
-                            <button type="button" class="btn btn btn-dash" data-toggle="modal" data-target="#modalreview<%= reservation.id %>" style="padding-left: 20px; padding-right: 20px">Pending Review</button>
+                            <button type="button" class="btn btn-dash" data-toggle="modal" data-target="#modalreview<%= reservation.id %>" style="padding-left: 20px; padding-right: 20px">Pending Review</button>
                           </div>
                         </td>
                       <% else  %>

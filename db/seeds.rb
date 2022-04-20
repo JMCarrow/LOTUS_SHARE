@@ -23,10 +23,10 @@ user.save
 puts "Created #{user.first_name}"
 
 bob = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650358877/v0w5kst9x4hjkiu1gi8j.jpg')
-user = User.new(first_name: "Bobby", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true, bio: "Uh oh. Did you come home to a less-than-happy plant? Don't panic just yet! Your plant still has some hope before it meets its untimely demise. Instead, know that a plant's health fluctuates if it's getting too much or too little of something. Most solutions to your plant's health issues are easy fixes that restore it to its natural balance. For example, a plant getting too much sun simply needs to find a new home in a shadier spot. Still lost for what to do to save your wilting friends? Drop your plant off with me and I will breathe new life into your green friends!")
-user.photo.attach(io: bob, filename: 'bob.png', content_type: 'image/png')
-user.save
-puts "Created #{user.first_name}"
+user_bob = User.new(first_name: "Bobby", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true, bio: "Uh oh. Did you come home to a less-than-happy plant? Don't panic just yet! Your plant still has some hope before it meets its untimely demise. Instead, know that a plant's health fluctuates if it's getting too much or too little of something. Most solutions to your plant's health issues are easy fixes that restore it to its natural balance. For example, a plant getting too much sun simply needs to find a new home in a shadier spot. Still lost for what to do to save your wilting friends? Drop your plant off with me and I will breathe new life into your green friends!")
+user_bob.photo.attach(io: bob, filename: 'bob.png', content_type: 'image/png')
+user_bob.save
+puts "Created #{user_bob.first_name}"
 
 sara = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863641/vuv45dhhxrd6zhpuatwt.jpg')
 user_sara = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium", bio: "You enter this space and you know one thing: You will not leave the space empty-handed. Too many temptations lure in every corner: richly patterned Philodendrons, colourful Fittonias, bushy Fiddle Figs, elegant Strelitzia, juicy succulents, and prickly cacti are lined up from one end to the other. Additionally, the beautiful ceramics planters are a decorator's dream. You can actually play mix & match. So this shop is a must visit if you come to Paris. Because let's be honest and put it this way: It is OUR kind of candy store!")
@@ -140,10 +140,10 @@ plant.save
 puts "Created #{plant.name}"
 
 orchid = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650289915/g1enaszgvdsxjkf0v62n.jpg')
-plant = Plant.new(name: "Orchid", size: "Medium", environment: "Indoor", species: "Orchidaceae", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Blue", availabe_for_purchase: false, buy_price: 35, address: "35 Rue du Chevalier de la Barre, 75018 Paris", description: "Airy and delicate to set a springtime mood!", watering: "Water 100ml once per week.", care: "Keep in a well lit room and make sure the soil is not too damp and there is proper drainage.", user: user_janeth)
-plant.photo.attach(io: orchid, filename: 'orchid.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_orchid = Plant.new(name: "Orchid", size: "Medium", environment: "Indoor", species: "Orchidaceae", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Blue", availabe_for_purchase: false, buy_price: 35, address: "35 Rue du Chevalier de la Barre, 75018 Paris", description: "Airy and delicate to set a springtime mood!", watering: "Water 100ml once per week.", care: "Keep in a well lit room and make sure the soil is not too damp and there is proper drainage.", user: user_janeth)
+plant_orchid.photo.attach(io: orchid, filename: 'orchid.png', content_type: 'image/png')
+plant_orchid.save
+puts "Created #{plant_orchid.name}"
 
 purple = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650357376/zmdonyrklkzmmae62gv7.jpg')
 plant = Plant.new(name: "Campanula", size: "Small", environment: "Indoor", species: "Campanula ambella", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: false, flowering: true, flower_color: "Purple", availabe_for_purchase: false, buy_price: 35, address: "5 Rue de Thorigny, 75003 Paris", description: "Campanula is a beautiful plant that is suitable for outdoors. Its green foliage is offset with small, purple, trumpet shaped flowers. This is a favourite amongst Tortoise keepers.", watering: "Water the plant regularly; twice a week is sufficient. Preferably water from below so that the foliage and flowers do not get wet. Briefly immersing the pot is also an option. Allow to drain well in order to ensure that the soil does not stay too wet.", care: "Some houseplant food for flowering plants once a fortnight will ensure long flowering.", user: user_cameron)
@@ -176,7 +176,7 @@ plant.save
 puts "Created #{plant.name}"
 
 superbells = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650358314/jpomismllw3zrmqq3rgo.jpg')
-plant = Plant.new(name: "superbells", size: "Small", environment: "Indoor", species: "Double Ruby Calibrachoa hybrid", height: "20 - 30cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: true, flower_color: "Multi", availabe_for_purchase: false, buy_price: 35, address: "36 Rue Geoffroy-Saint-Hilaire, 75005 Paris", description: "This exquisite double-flowered calibrachoa will add instant elegance to your patio containers, window boxes and porch baskets. From spring into fall, deep red blossoms cover the cascading stems as it spills over the edges of your containers.", watering: "Calibrachoa do not like to have constantly damp soil. For most gardens, containers are the best use for Calibrachoa.", care: "The plants are low-maintenance with no deadheading needed. They will do best if fertilized on a regular basis. Calibrachoa can be sensitive to both high and low pH.", user: user_janeth)
+plant = Plant.new(name: "Superbells", size: "Small", environment: "Indoor", species: "Double Ruby Calibrachoa hybrid", height: "20 - 30cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: true, flower_color: "Multi", availabe_for_purchase: false, buy_price: 35, address: "36 Rue Geoffroy-Saint-Hilaire, 75005 Paris", description: "This exquisite double-flowered calibrachoa will add instant elegance to your patio containers, window boxes and porch baskets. From spring into fall, deep red blossoms cover the cascading stems as it spills over the edges of your containers.", watering: "Calibrachoa do not like to have constantly damp soil. For most gardens, containers are the best use for Calibrachoa.", care: "The plants are low-maintenance with no deadheading needed. They will do best if fertilized on a regular basis. Calibrachoa can be sensitive to both high and low pH.", user: user_janeth)
 plant.photo.attach(io: superbells, filename: 'superbells.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
@@ -227,3 +227,18 @@ faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "A
 end
 
 puts "Finished!"
+
+puts "Creating reviews..."
+review_janeth = Review.new(rating: 4, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_janeth.id, plant_id: plant_orchid.id)
+review_janeth.save
+puts "#{user.first_name} review created"
+
+  create_table "reviews", force: :cascade do |t|
+    t.float "rating"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "plant_id", null: false
+    t.index ["plant_id"], name: "index_reviews_on_plant_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"

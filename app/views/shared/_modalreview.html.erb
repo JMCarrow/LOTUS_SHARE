@@ -12,6 +12,7 @@
         <%= simple_form_for([plant, review]) do |f| %>
             <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], required: true %>
             <%= f.input :content, as: :text, required: false %>
+            <%= hidden_field_tag :reservation, reservation.id %>
           <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Leave a review" %></p>
         <% end %>
       </div>

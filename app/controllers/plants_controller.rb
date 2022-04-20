@@ -52,7 +52,7 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     authorize @plant
     if @plant.save
-      redirect_to plants_path
+      redirect_to user_path(@plant.user)
     else
       render :new
     end

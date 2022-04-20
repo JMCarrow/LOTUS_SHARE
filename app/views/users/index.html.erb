@@ -27,7 +27,13 @@
                      <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
+                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                          <i class="fa-solid fa-star"></i>
+                        <% end %>
+                        <% (5-(user.reviews.map{|review| review.rating}.sum / user.reviews.count)).to_i.times do %>
+                          <i class="fa-regular fa-star"></i>
+                        <% end %>
+                        </span>
                       <% else %>
                         <span><%= 0 %> star </span>
                       <% end %>
@@ -55,7 +61,9 @@
                     <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
+                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                          <i class="fa-solid fa-star"></i>
+                        <% end %>
                       <% else %>
                         <span><%= 0 %> star </span>
                       <% end %>
@@ -84,7 +92,9 @@
                      <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
+                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                          <i class="fa-solid fa-star"></i>
+                        <% end %>
                       <% else %>
                         <span><%= 0 %> star </span>
                       <% end %>
