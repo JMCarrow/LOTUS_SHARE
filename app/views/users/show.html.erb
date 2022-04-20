@@ -58,11 +58,18 @@
       <% end %>
     <% end %>
       <% if @user.reviews.any? %>
+        <span><% (@user.reviews.map{|review| review.rating}.sum / @user.reviews.count).to_i.times do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %>
+        <% (5-(@user.reviews.map{|review| review.rating}.sum / @user.reviews.count)).to_i.times do %>
+          <i class="fa-regular fa-star"></i>
+        <% end %>
         <% @rate = @array / @user.reviews.count %>
-        <span><%= @rate.round(1) %> stars - <%= @user.reviews.count %> reviews</span>
+        <span> <%= @user.reviews.count %> reviews</span>
       <% else %>
         <span><%= 0 %> star - <%= 0 %> review</span>
       <% end %>
+      <br>
       <% if @user.plants.any? %>
         <span><%= @user.plants.count%> plants</span>
       <% end %>
@@ -152,11 +159,19 @@
       <% @user.reviews.each do |review| %>
       <div class="card-userpage-reviewphoto">
         <div>
-          <%= cl_image_tag review.plant.photo.key, crop: :fill, class:"index-card-image"%>
+          <%= cl_image_tag review.plant.photo.key, crop: :fill, class:"review-card-image"%>
         </div>
         <div class="card-userpage-reviewtext">
           <div class="review-rating">
-            <h2><%= review.plant.name %> Rating:</h2><h3><%= review.rating %> Stars</h3>
+            <%= review.plant.name %><%= " Rating " %>
+            <% if @user.reviews.any? %>
+              <span><% (@user.reviews.map{|review| review.rating}.sum / @user.reviews.count).to_i.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5-(@user.reviews.map{|review| review.rating}.sum / @user.reviews.count)).to_i.times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+            <% end %>
           </div>
           <p><%= review.content %></p>
         </div>
