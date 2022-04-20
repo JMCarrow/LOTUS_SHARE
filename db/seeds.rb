@@ -32,7 +32,7 @@ sara = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863641/v
 user_sara = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium", bio: "You enter this space and you know one thing: You will not leave the space empty-handed. Too many temptations lure in every corner: richly patterned Philodendrons, colourful Fittonias, bushy Fiddle Figs, elegant Strelitzia, juicy succulents, and prickly cacti are lined up from one end to the other. Additionally, the beautiful ceramics planters are a decorator's dream. You can actually play mix & match. So this shop is a must visit if you come to Paris. Because let's be honest and put it this way: It is OUR kind of candy store!")
 user_sara.photo.attach(io: sara, filename: 'sara.png', content_type: 'image/png')
 user_sara.save
-puts "Created #{user.first_name}"
+puts "Created #{user_sara.first_name}"
 
 douglas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283926/ddbzxug7mj8puck4odsd.jpg')
 user = User.new(first_name: "Douglas", last_name: "Woodrow", email: "test4@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
@@ -44,13 +44,13 @@ janeth = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284183
 user_janeth = User.new(first_name: "Janeth", last_name: "Strickland", email: "test5@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Artisanal Floral Boutique", minority_owned: true, bio: "Once you surpassed the first moment of awe while looking at all the plants, you might notice how bright and contemporary the space looks like. White and pastel hues, terracotta colored doors, wooden accents, pale pink walls - for those familiar with the French design scene the conclusion lies on the hand: We invite you to enjoy a cup of tea while you are pondering about how many plants you can actually juggle through the streets of Paris!.")
 user_janeth.photo.attach(io: janeth, filename: 'douglas.png', content_type: 'image/png')
 user_janeth.save
-puts "Created #{user.first_name}"
+puts "Created #{user_janeth.first_name}"
 
 cameron = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284463/kbvhwvpjlo9lzaewyisp.jpg')
 user_cameron = User.new(first_name: "Cameron", last_name: "Lambert", email: "test6@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Your Queer Corner Florist", minority_owned: true, bio: "Installed since one year and a half, this highly instagramable vegetal concept-store puts the spotlight on seasonal plants, cultivated in the respect of the environment. I will 'leaf' you with these beautiful options to welcome into your abode! You will enjoy it and feel invigorated, inspired, and - we do believe - you will bring  a little new green friend back home.")
 user_cameron.photo.attach(io: cameron, filename: 'cameron.png', content_type: 'image/png')
 user_cameron.save
-puts "Created #{user.first_name}"
+puts "Created #{user_cameron.first_name}"
 
 rikesh = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650439465/fgmnrubm6cxbc2uqtqrm.jpg')
 user = User.new(first_name: "Rikesh", last_name: "Jadhav", email: "test7@gmail.com", password: "123456", professional: false, healer: false)
