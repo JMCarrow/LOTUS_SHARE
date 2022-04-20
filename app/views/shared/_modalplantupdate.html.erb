@@ -8,11 +8,11 @@
         </button>
       </div>
       <div class="modal-body">
-      <h4>Please change the information you need</h4>
         <%= simple_form_for plant do |f| %>
             <%= f.input :name, as: :string, required: true %>
             <%= f.input :size, collection: ["Large", "Medium", "Small"], required: true %>
             <%= f.input :environment, collection: ["Indoor", "Outdoor"], required: true %>
+            <%= f.input :flower_color, collection: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White", "Pink", "Multi"] %>
             <%= f.input :photo, as: :file, required: true %>
         <p class="text-center"><%= f.submit class: "btn btn-secondary", value:"Update plant info" %></p>
         <% end %>
