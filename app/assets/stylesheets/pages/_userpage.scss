@@ -226,6 +226,7 @@
 
 .review-rating {
   display: flex;
+  justify-content: space-between;
   h2, h3 {
     font-size: 15px;
     align-items: center;
@@ -235,4 +236,15 @@
     font-weight: 300;
     font-size: 15px;
   }
+}
+
+.fa-star {
+  font-size: 10px;
+  color: #FFE162;
+}
+
+.review-card-image {
+  object-fit: cover;
+  width: 11vw;
+  height: 100%;
 }

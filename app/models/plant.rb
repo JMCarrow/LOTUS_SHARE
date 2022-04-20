@@ -6,7 +6,7 @@ class Plant < ApplicationRecord
 
   has_many :reservations, dependent: :destroy
 
-  validates :name, :environment, :size, presence: true
+  validates :name, :environment, :size, :rent_price, presence: true
   validates :photo, presence: true
   after_validation :geocode, if: :will_save_change_to_address?
 

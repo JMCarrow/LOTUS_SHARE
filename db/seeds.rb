@@ -17,37 +17,37 @@ puts "Cleaning Database!"
 puts "Creating users..."
 
 mimi = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283602/cpxlg3rjceanrvjudpak.jpg')
-user = User.new(first_name: "Mimi", last_name: "Dou", email: "test1@gmail.com", password: "123456", professional: false, healer: false)
+user = User.new(first_name: "Mimi", last_name: "Dou", email: "mimi@gmail.com", password: "123456", professional: false, healer: false)
 user.photo.attach(io: mimi, filename: 'mimi.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
 
 bob = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650358877/v0w5kst9x4hjkiu1gi8j.jpg')
-user_bob = User.new(first_name: "Bobby", last_name: "Feelgood", email: "test2@gmail.com", password: "123456", professional: false, healer: true, bio: "Uh oh. Did you come home to a less-than-happy plant? Don't panic just yet! Your plant still has some hope before it meets its untimely demise. Instead, know that a plant's health fluctuates if it's getting too much or too little of something. Most solutions to your plant's health issues are easy fixes that restore it to its natural balance. For example, a plant getting too much sun simply needs to find a new home in a shadier spot. Still lost for what to do to save your wilting friends? Drop your plant off with me and I will breathe new life into your green friends!")
+user_bob = User.new(first_name: "Bobby", last_name: "Feelgood", email: "bobby@gmail.com", password: "123456", professional: false, healer: true, bio: "Uh oh. Did you come home to a less-than-happy plant? Don't panic just yet! Your plant still has some hope before it meets its untimely demise. Instead, know that a plant's health fluctuates if it's getting too much or too little of something. Most solutions to your plant's health issues are easy fixes that restore it to its natural balance. For example, a plant getting too much sun simply needs to find a new home in a shadier spot. Still lost for what to do to save your wilting friends? Drop your plant off with me and I will breathe new life into your green friends!")
 user_bob.photo.attach(io: bob, filename: 'bob.png', content_type: 'image/png')
 user_bob.save
 puts "Created #{user_bob.first_name}"
 
 sara = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649863641/vuv45dhhxrd6zhpuatwt.jpg')
-user_sara = User.new(first_name: "Sara", last_name: "Clark", email: "test3@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium", bio: "You enter this space and you know one thing: You will not leave the space empty-handed. Too many temptations lure in every corner: richly patterned Philodendrons, colourful Fittonias, bushy Fiddle Figs, elegant Strelitzia, juicy succulents, and prickly cacti are lined up from one end to the other. Additionally, the beautiful ceramics planters are a decorator's dream. You can actually play mix & match. So this shop is a must visit if you come to Paris. Because let's be honest and put it this way: It is OUR kind of candy store!")
+user_sara = User.new(first_name: "Sara", last_name: "Clark", email: "sara@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Rainbow Emporium", bio: "You enter this space and you know one thing: You will not leave the space empty-handed. Too many temptations lure in every corner: richly patterned Philodendrons, colourful Fittonias, bushy Fiddle Figs, elegant Strelitzia, juicy succulents, and prickly cacti are lined up from one end to the other. Additionally, the beautiful ceramics planters are a decorator's dream. You can actually play mix & match. So this shop is a must visit if you come to Paris. Because let's be honest and put it this way: It is OUR kind of candy store!")
 user_sara.photo.attach(io: sara, filename: 'sara.png', content_type: 'image/png')
 user_sara.save
 puts "Created #{user_sara.first_name}"
 
 douglas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283926/ddbzxug7mj8puck4odsd.jpg')
-user = User.new(first_name: "Douglas", last_name: "Woodrow", email: "test4@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
+user = User.new(first_name: "Douglas", last_name: "Woodrow", email: "douglas@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
 user.photo.attach(io: douglas, filename: 'douglas.png', content_type: 'image/png')
 user.save
 puts "Created #{user.first_name}"
 
 janeth = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284183/gmysu8b7xmbfge0xfbei.jpg')
-user_janeth = User.new(first_name: "Janeth", last_name: "Strickland", email: "test5@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Artisanal Floral Boutique", minority_owned: true, bio: "Once you surpassed the first moment of awe while looking at all the plants, you might notice how bright and contemporary the space looks like. White and pastel hues, terracotta colored doors, wooden accents, pale pink walls - for those familiar with the French design scene the conclusion lies on the hand: We invite you to enjoy a cup of tea while you are pondering about how many plants you can actually juggle through the streets of Paris!.")
+user_janeth = User.new(first_name: "Janeth", last_name: "Strickland", email: "janeth@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Artisanal Floral Boutique", minority_owned: true, bio: "Once you surpassed the first moment of awe while looking at all the plants, you might notice how bright and contemporary the space looks like. White and pastel hues, terracotta colored doors, wooden accents, pale pink walls - for those familiar with the French design scene the conclusion lies on the hand: We invite you to enjoy a cup of tea while you are pondering about how many plants you can actually juggle through the streets of Paris!.")
 user_janeth.photo.attach(io: janeth, filename: 'douglas.png', content_type: 'image/png')
 user_janeth.save
 puts "Created #{user_janeth.first_name}"
 
 cameron = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284463/kbvhwvpjlo9lzaewyisp.jpg')
-user_cameron = User.new(first_name: "Cameron", last_name: "Lambert", email: "test6@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Your Queer Corner Florist", minority_owned: true, bio: "Installed since one year and a half, this highly instagramable vegetal concept-store puts the spotlight on seasonal plants, cultivated in the respect of the environment. I will 'leaf' you with these beautiful options to welcome into your abode! You will enjoy it and feel invigorated, inspired, and - we do believe - you will bring  a little new green friend back home.")
+user_cameron = User.new(first_name: "Cameron", last_name: "Lambert", email: "cameron@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Your Queer Corner Florist", minority_owned: true, bio: "Installed since one year and a half, this highly instagramable vegetal concept-store puts the spotlight on seasonal plants, cultivated in the respect of the environment. I will 'leaf' you with these beautiful options to welcome into your abode! You will enjoy it and feel invigorated, inspired, and - we do believe - you will bring  a little new green friend back home.")
 user_cameron.photo.attach(io: cameron, filename: 'cameron.png', content_type: 'image/png')
 user_cameron.save
 puts "Created #{user_cameron.first_name}"
@@ -95,6 +95,7 @@ users_data = JSON.parse(open(user_url).read)
 bio = ["Having an event and here to rent some plants to impress my friends!", "I own an Airbnb and am looking to rent plants on a monthly basis to decorate the space!", "I am en event planner and looking to rent plants for very specific events I throw for clients!", "I am a real estate agent and am in needs of plants for staging units for sale!"]
 
 puts 'Creating 50 more users...'
+
 users_data['results'].each do |user_data|
   user = User.new(
     first_name: user_data['name']['first'],
@@ -116,10 +117,10 @@ puts 'Finished!'
 puts "Creating plants..."
 
 hanging_fern = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649853160/m4vukrbt7opuqn3lgfzv.jpg')
-plant = Plant.new(name: "Hanging Fern", size: "Medium", environment: "Outdoor", species: "Nephrolepis exaltata", height: "30cm - 60cm", rent_price: 4, sun_exposure: "Direct", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "9 Rue Bouchut, 75015 Paris", description: "Lovely fern to bring a pop of color into your life!", watering: "Water 100ml every other week", care: "Nothing to do but enjoy!", user: user_sara)
-plant.photo.attach(io: hanging_fern, filename: 'hanging-fern.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_fern = Plant.new(name: "Hanging Fern", size: "Medium", environment: "Outdoor", species: "Nephrolepis exaltata", height: "30cm - 60cm", rent_price: 4, sun_exposure: "Direct", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "9 Rue Bouchut, 75015 Paris", description: "Lovely fern to bring a pop of color into your life!", watering: "Water 100ml every other week", care: "Nothing to do but enjoy!", user: user_sara)
+plant_fern.photo.attach(io: hanging_fern, filename: 'hanging-fern.png', content_type: 'image/png')
+plant_fern.save
+puts "Created #{plant_fern.name}"
 
 alstromeria = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649948453/b78iw0b57hl7rlbbhxod.jpg')
 plant = Plant.create(name: "Alstroemeria Paola", size: "Small", environment: "Outdoor", species: "Alstroemeria Princess Paola", height: "20cm - 30cm", rent_price: 4, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Multi", availabe_for_purchase: false, buy_price: 35, address: "123 Memory Lane, 93170 Paris", description: "'Princess Paola' _ 'Princess Paola', a dwarf, long flowering variety, has lance-shaped leaves and apricot and pale pink flowers with yellow centres in summer.", watering: "Water 0.5L each week and keep soil moise but well drained.", care: "Gaze upon the longevity of the flowers with adoration.", user: user_janeth)
@@ -128,10 +129,10 @@ plant.save
 puts "Created #{plant.name}"
 
 begonia = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650356168/tg2a4awhidri4xieiy11.jpg')
-plant = Plant.new(name: 'Begonia', size: "Small", environment: "Outdoor", species: "Begonia Superba Yellow", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: true, flower_color: "Yellow", availabe_for_purchase: false, buy_price: 35, address: "16 Rue du Repos, 75020 Paris", description: "Fresh and vibrant Begonia 'Superba Yellow' is a tropical-looking treasure with impressively large double blooms in a delicate cocktail of soft lemon and peach tones. Boldly brandishing a continuous display of these big blooms all summer long whether in sun or shade, it's just what's needed for injecting some warm, bright hues and floral magic into a dull spot.", watering: "Water 200ml each week but make sure the soil is dry before wating again.", care: "Nothing to do but enjoy the delicate, large blooms!", user: user_cameron)
-plant.photo.attach(io: begonia, filename: 'begonia.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_begonia = Plant.new(name: 'Begonia', size: "Small", environment: "Outdoor", species: "Begonia Superba Yellow", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: true, flower_color: "Yellow", availabe_for_purchase: false, buy_price: 35, address: "16 Rue du Repos, 75020 Paris", description: "Fresh and vibrant Begonia 'Superba Yellow' is a tropical-looking treasure with impressively large double blooms in a delicate cocktail of soft lemon and peach tones. Boldly brandishing a continuous display of these big blooms all summer long whether in sun or shade, it's just what's needed for injecting some warm, bright hues and floral magic into a dull spot.", watering: "Water 200ml each week but make sure the soil is dry before wating again.", care: "Nothing to do but enjoy the delicate, large blooms!", user: user_cameron)
+plant_begonia.photo.attach(io: begonia, filename: 'begonia.png', content_type: 'image/png')
+plant_begonia.save
+puts "Created #{plant_begonia.name}"
 
 croton = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864602/ipytofq26u4xbuh7jin9.jpg')
 plant = Plant.new(name: "Croton", size: "Small", environment: "Indoor", species: "Codiaeum variegatum", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "9 Cr des Petites Écuries, 75010 Paris", description: "Perfect plant with green and orange leaves to bring an accent of color to any apartment!", watering: "Water 50ml once per week.", care: "The plants must be supplied with sufficiently damp soil in order to prevent drooping.", user: user_sara)
@@ -186,9 +187,11 @@ plant = Plant.new(name: "Hoya Kerrii", size: "Small", environment: "Indoor", spe
 plant.photo.attach(io: hk, filename: 'hoya-kerrii.png', content_type: 'image/png')
 plant.save
 puts "Created #{plant.name}"
+
 puts "Creating faker plants"
 
 # Faker for 100 more plants
+
 faker_height = ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"]
 faker_size = ["Large", "Medium", "Small"]
 faker_environ = ["Indoor", "Outdoor"]
@@ -229,16 +232,46 @@ end
 puts "Finished!"
 
 puts "Creating reviews..."
+
 review_janeth = Review.new(rating: 4, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_janeth.id, plant_id: plant_orchid.id)
 review_janeth.save
-puts "#{user.first_name} review created"
+puts "#{user_janeth.first_name} review created"
 
-  create_table "reviews", force: :cascade do |t|
-    t.float "rating"
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "plant_id", null: false
-    t.index ["plant_id"], name: "index_reviews_on_plant_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+review_janeth = Review.new(rating: 5, content: "Your shop is really amazing, i really don't know wich plant to choose everytime i come on your profile ^^", user_id: user_janeth.id, plant_id: plant_orchid.id)
+review_janeth.save
+puts "#{user_janeth.first_name} review created"
+
+review_sara = Review.new(rating: 3, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_sara.id, plant_id: plant_fern.id)
+review_sara.save
+puts "#{user_sara.first_name} review created"
+
+review_sara = Review.new(rating: 4, content: "Your shop is really amazing, i really don't know wich plant to choose everytime i come on your profile ^^", user_id: user_sara.id, plant_id: plant_fern.id)
+review_sara.save
+puts "#{user_sara.first_name} review created"
+
+review_cameron = Review.new(rating: 3, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_cameron.id, plant_id: plant_begonia.id)
+review_cameron.save
+puts "#{user_cameron.first_name} review created"
+
+review_cameron = Review.new(rating: 4, content: "Your shop is really amazing, i really don't know wich plant to choose everytime i come on your profile ^^", user_id: user_cameron.id, plant_id: plant_begonia.id)
+review_cameron.save
+puts "#{user_cameron.first_name} review created"
+
+puts "Creating faker reviews"
+
+faker_rating = (1..5).to_a
+faker_content = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid magni veritatis illo nostrum laborum cumque dolor quisquam quod molestiae, distinctio consequuntur, officia ab repudiandae provident ducimus aspernatur exercitationem eius itaque.", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat ut beatae incidunt, facilis dicta laudantium voluptatibus maxime. Minima, nemo quam voluptates cumque dolorem quo, dignissimos consequatur nobis animi enim ad?", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum qui dolor ullam possimus! Error ut, temporibus officia natus facere, asperiores esse autem, cupiditate numquam ipsa velit minima reprehenderit ad sit.", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laboriosam velit voluptatem, quia facilis vitae, ipsa id necessitatibus magnam dolorem corrupti numquam laudantium mollitia similique, voluptatibus perferendis? Ea, corporis provident?"]
+faker_user = User.where(professional: false)
+
+200.times do
+  review = Review.new(
+    rating: faker_rating.sample,
+    content: faker_content.sample,
+    user_id: faker_user.ids.sample,
+    plant_id: Plant.all.ids.sample
+  )
+  review.save
+  puts "Faked review"
+end
+
+puts "Finished!"
