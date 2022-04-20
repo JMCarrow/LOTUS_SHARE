@@ -202,7 +202,7 @@ faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "A
 
     100.times do |i|
       plant = Plant.new(
-        name: Faker::Ancient.primordial,
+        name: faker_name.sample,
         size: faker_size.sample,
         environment: faker_environ.sample,
         species: Faker::Cannabis.cannabinoid,
