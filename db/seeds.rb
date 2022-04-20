@@ -192,6 +192,7 @@ puts "Creating faker plants"
 faker_height = ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"]
 faker_size = ["Large", "Medium", "Small"]
 faker_environ = ["Indoor", "Outdoor"]
+faker_species = ["Nephrolepis exaltata", "Alstroemeria Princess Paola", "Begonia Superba Yellow", "Codiaeum variegatum", "Orchidaceae", "Campanula ambella", "Medinilla magnifica", "Hydrangea paniculata", "Caladium bicolor", "Hevea brasiliensis", "Double Ruby Calibrachoa hybrid", "Acokanthera obovata var. kerrii"]
 faker_rent = [1..20]
 faker_sun = ["Direct", "Indirect"]
 faker_desc = ["Lovely little plant for your space!", "Beautiful flower sure to make your guests smile!", "Brings the outdoors, indoors!","A great addion to your space.", "Liven up any room!", "Your guests will surely be impressed!", "Lightly scented to remind you to breath deeply and smell the flowers!"]
@@ -204,7 +205,7 @@ faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "A
     name: faker_name.sample,
     size: faker_size.sample,
     environment: faker_environ.sample,
-    species: Faker::Cannabis.cannabinoid,
+    species: faker_species.sample,
     height: faker_height.sample,
     rent_price: faker_rent.sample,
     sun_exposure: faker_sun.sample,
@@ -217,7 +218,7 @@ faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "A
     description: faker_desc.sample,
     watering: 'Water the plant regularly; twice a week is sufficient. Preferably water from below so that the foliage and flowers do not get wet. Briefly immersing the pot is also an option. Allow to drain well in order to ensure that the soil does not stay too wet.',
     care: faker_care.sample,
-    user: User.all.sample
+    user: User.where(professional: false).sample
   )
   plant_url = URI.open("https://loremflickr.com/300/300/flowers/all")
   plant.photo.attach(io: plant_url, filename: "#{plant.name}.png", content_type: 'image/png')
