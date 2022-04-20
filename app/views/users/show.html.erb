@@ -63,6 +63,9 @@
       <% else %>
         <span><%= 0 %> star - <%= 0 %> review</span>
       <% end %>
+      <% if @user.plants.any? %>
+        <span><%= @user.plants.count%> plants</span>
+      <% end %>
       <%= render 'shared/modalprofilupdate', user: @user %>
     </div>
 

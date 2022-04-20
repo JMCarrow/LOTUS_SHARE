@@ -24,10 +24,16 @@
                 <div class="user-card-info">
                   <h5 class="user-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35)%></h5>
                   <div class="user-card-text">
-                    <% if user.reviews.any? %>
-                      <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %> stars - <%= user.reviews.count %> reviews</span>
+                     <% if user.plants.any? %>
+                      <span><%= user.plants.count %> plants</span>
+                      <% if user.reviews.any? %>
+                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
+                      <% else %>
+                        <span><%= 0 %> star </span>
+                      <% end %>
                     <% else %>
-                      <span><%= 0 %> star - <%= 0 %> review</span>
+                        <span><%= 0 %> plants</span>
+                        <span><%= 0 %> star </span>
                     <% end %>
                   </div>
                 </div>
@@ -46,10 +52,16 @@
                 <div class="user-card-info">
                   <h5 class="user-card-title"><%= user.first_name.length < 35 ? user.first_name : user.first_name.first(35)%></h5>
                   <div class="user-card-text">
-                    <% if user.reviews.any? %>
-                      <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %> stars - <%= user.reviews.count %> reviews</span>
+                    <% if user.plants.any? %>
+                      <span><%= user.plants.count %> plants</span>
+                      <% if user.reviews.any? %>
+                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
+                      <% else %>
+                        <span><%= 0 %> star </span>
+                      <% end %>
                     <% else %>
-                      <span><%= 0 %> star - <%= 0 %> review</span>
+                        <span><%= 0 %> plants</span>
+                        <span><%= 0 %> star </span>
                     <% end %>
                   </div>
                 </div>
@@ -69,11 +81,17 @@
                   <div class="user-card-info">
                     <h5 class="user-card-title"><%= user.first_name.length < 35 ? user.first_name : user.first_name.first(35)%></h5>
                     <div class="user-card-text">
+                     <% if user.plants.any? %>
+                      <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %> stars - <%= user.reviews.count %> reviews</span>
+                        <span><%= user.reviews.map{|review| review.rating}.sum / user.reviews.count %></span>
                       <% else %>
-                        <span><%= 0 %> star - <%= 0 %> review</span>
+                        <span><%= 0 %> star </span>
                       <% end %>
+                    <% else %>
+                        <span><%= 0 %> plants</span>
+                        <span><%= 0 %> star </span>
+                    <% end %>
                     </div>
                   </div>
                 </div>

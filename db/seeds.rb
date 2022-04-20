@@ -96,22 +96,21 @@ bio = ["Having an event and here to rent some plants to impress my friends!", "I
 
 puts 'Creating 50 more users...'
 users_data['results'].each do |user_data|
-    user = User.new(
-      first_name: user_data['name']['first'],
-      last_name: user_data['name']['last'],
-      email: user_data['email'],
-      # address: address.sample + ", France",
-      password: '123456',
-      professional: false,
-      healer: false,
-      bio: bio.sample
-    )
-  
-    file = URI.open("#{user_data['picture']['large']}")
-    user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
-    user.save!
-    puts "Created #{user.first_name}"
-  end
+  user = User.new(
+    first_name: user_data['name']['first'],
+    last_name: user_data['name']['last'],
+    email: user_data['email'],
+    # address: address.sample + ", France",
+    password: '123456',
+    professional: false,
+    healer: false,
+    bio: bio.sample
+  )
+  file = URI.open("#{user_data['picture']['large']}")
+  user.photo.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
+  user.save!
+  puts "Created #{user.first_name}"
+end
 puts 'Finished!'
 
 puts "Creating plants..."
@@ -193,37 +192,37 @@ puts "Creating faker plants"
 faker_height = ["10cm - 20cm", "20cm - 30cm", "30cm - 60cm", "60cm - 100cm", "100cm+"]
 faker_size = ["Large", "Medium", "Small"]
 faker_environ = ["Indoor", "Outdoor"]
-faker_rent = [1,2,3,4,5,6,7,8,9]
+faker_rent = [1..20]
 faker_sun = ["Direct", "Indirect"]
 faker_desc = ["Lovely little plant for your space!", "Beautiful flower sure to make your guests smile!", "Brings the outdoors, indoors!","A great addion to your space.", "Liven up any room!", "Your guests will surely be impressed!", "Lightly scented to remind you to breath deeply and smell the flowers!"]
 faker_care = ["Nothing to do here but enjoy the company of your new guest!", "Gaze upon the longevity of the flowers with adoration.", "Nothing to do but enjoy the delicate, large blooms!", "The plants must be supplied with sufficiently damp soil in order to prevent drooping.", "Keep in a well lit room and make sure the soil is not too damp and there is proper drainage.", "Some houseplant food for flowering plants once a fortnight will ensure long flowering.", "Whisper kind words in her leaves every hour for optimum beauty. Also, protect from any strong winds.", "The plants are low-maintenance with no deadheading needed. They will do best if fertilized on a regular basis. Roots can be sensitive to both high and low pH."]
 address = ["56 Bd de la Boissière, 93100 Montreuil", "Av. Daumesnil, 75012 Paris", "181 Bd Macdonald, 75019 Paris", "8 Rue David d'Angers, 75019 Paris", "2-12 Rue François Mitterrand, 94200 Ivry-sur-Seine", "2 Rue Cauchy, 75015 Paris", "10 Rue Dupleix, 75015 Paris", "2 Rue Louis Boilly, 75016 Paris", "40 Rue Worth, 92150 Suresnes", "Pl. de la Vache Noire, 94110 Arcueil", "88 Av. de Choisy, 75013 Paris", "12 Rue du Père Guérin, 75013 Paris", "49 Rue Monge, 75005 Paris", "10 Rue des Bernardins, 75005 Paris", "57 Rue Galande, 75005 Paris", "3 Pl. Saint-Michel, 75005 Paris", "121 Rue de Reuilly, 75012 Paris", "242 Rue du Faubourg Saint-Antoine, 75012 Paris", "56 Rue Carnot, 93100 Montreuil", "15 Pl. du Général de Gaulle, 93100 Montreuil", "1 Rue Saint-Germain, 93230 Romainville", "La, 4 Av. Paul Vaillant Couturier, 93120 La Courneuve", "2 Rue Jesse Owens, 93200 Saint-Denis", "23 Av. Marceau, 92400 Courbevoie"]
 faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "Ageratum", "Alchemilla", "Allium", "Alstroemeria", "Alyssum", "Amaranthus", "Amaryllis", "Anemone", "Anise Hyssop", "Armeria Maritima", "Aster", "Azalea", "Baby's Breath", "Bachelor's Button", "Balloon Flower", "Ballota", "Bee Balm", "Begonia", "Bellflower", "Bergamot", "Bergenia", "Billbergia", "Black-eyed Susan", "Blanket Flower", "Blazing Star", "Bleeding Heart", "Bletilla","Bluestar Flower","Bluebonnets", "Blue-eyed Grass", "Borage", "Bottlebrush", "Bouvardia", "Brachyscome", "Broom", "Buttercup", "Butterfly Bush", "Calceolaria", "Calendula", "California Poppy", "Calla Lily", "Camellia","Candytuft", "Canna Lily", "Cape Leadwort", "Cape Primrose", "Cardinal Flower", "Carnation", "Catharanthus", "Catmint", "Celosia", "Cerastium Tomentosum", "Chicory", "Chionodoxa", "Chrysanthemum", "Clarkia", "Clematis", "Clover", "Columbine", "Coneflower", "Coral Bells", "Coral Vine", "Coreopsis", "Cornflower", "Corydalis", "Cosmos", "Cotoneaster", "Crocosmia", "Crocus", "Crown Imperial", "Cuckoo Flower", "Cyclamen", "Daffodil", "Dahlia", "Daisy", "Dandelion", "Daphne", "Daylily", "Decumaria", "Delphinium","Desert Rose", "Deutzia", "Dianella", "Dianthus barbatus", "Diascia","Dietes","Dill", "Disa", "Dutch Iris", "Echinops", "Echium", "Elder", "English Bluebell", "Epimedium", "Eremurus", "Erica", "Erigeron", "Euphorbia", "Eustoma", "Evening Primrose", "Fall Crocus", "Feverfew", "Firethorn", "Flaming Katy", "Flannel Flower", "Flax Flower", "Flowering Dogwood", "Forget Me Not", "Forsythia", "Four O'clock", "Foxglove", "Frangipani Flower","Freesia","French Marigold", "Fuchsia", "Gaillardia", "Gardenia", "Gazania", "Geranium", "Gerbera Flower", "Gladiolas", "Goldenrod", "Grape Hyacinth", "Guzmania", "Hawthorn", "Heather", "Hebe", "Helenium", "Helichrysum", "Heliotrope", "Hellebore", "Hibiscus", "Holly", "Hollyhock", "Honeysuckle", "Hosta", "Hyacinth", "Hydrangea","Hyssop","Ice Plant", "Iceland Poppy", "Impatiens", "Ipomoea Lobata", "Iris", "Ixia", "Ixora", "Jacob's Ladder", "Jasmine", "Johnny Jump Up", "Kaffir Lily", "Kalmia", "Kangaroo Paw", "Knautia", "Kniphofia", "Lady's Slipper", "Laelia", "Lantana", "Larkspur", "Lavatera", "Lavender", "Lemon Verbena", "Lewesia", "Lilac", "Lily of the Valley", "Lily", "Linaria", "Lotus", "Love in the Mist", "Lunaria", "Lupin", "Magnolia", "Maltese Cross", "Mandevilla", "Marguerite Daisy", "Marigold", "Matthiola", "Mayflower", "Meconopsis", "Mimosa", "Monk's Hood", "Moraea", "Morning Glory", "Moss Rose", "Narcissus", "Nasturtium", "Nemesia", "Nemophila", "Neoregelia", "Nerine", "New Zealand Tea Tree", "Nierembergia", "Nolana", "Oleander", "Olearia", "Orchid", "Oriental Lily", "Oriental Poppy", "Ornamental Cherry", "Ornithogalum", "Osteospermum", "Oxalis", "Oxeye Daisy", "Oyster Plant", "Painted Daisy", "Pansy", "Parodia", "Passion Flower", "Peace Lily", "Pelargonium", "Penstemon", "Peony", "Periwinkle", "Persian Buttercup", "Petunia", "Phlox", "Photinia", "Physostegia", "Pincushion Flower", "Pinks", "Poinsettia", "Potentilla", "Polyanthus", "Poppy", "Powder Puff", "Quaker Ladies", "Queen Anne's Lace", "Queen of the Meadow", "Queen's Cup", "Quince", "Rain Lily", "Rock Rose", "Rondeletia", "Roses", "Rose of Sharon", "Sage", "Saint John's Wort", "Scaevola", "Scented Geranium", "Scilla", "Sedum", "Shasta Daisy", "Silene", "Snapdragon", "Snowdrop", "Snowflake", "Soapwort", "Speedwell", "Starflower", "Statice", "Sunflower", "Sweet Pea", "Tea Rose", "Tiger Flower", "Tithonia", "Trachelium", "Trillium", "Triteleia", "Tritonia crocata", "Trollius", "Trumpet Vine", "Tuberose", "Tulip", "Urn Plant", "Ursinia", "Uva Ursi", "Valerian", "Verbena", "Viburnum", "Viola", "Virginia Creeper", "Wallflower", "Wandflower", "Water lilies", "Watsonia", "Wax Plant", "Wedelia", "Weigela", "Whirling Butterflies", "Winter Jasmine", "Winterberry", "Wishbone Flower", "Woolly Violet", "Xanthoceras sorbifolium", "Xerophyllum", "Xylobium", "Xylosma", "Yarrow", "Yellow Archangel", "Yellow Bell", "Yellow-eyed Grass", "Zenobia", "Zinnia"]
 
-    100.times do |i|
-      plant = Plant.new(
-        name: faker_name.sample,
-        size: faker_size.sample,
-        environment: faker_environ.sample,
-        species: Faker::Cannabis.cannabinoid,
-        height: faker_height.sample,
-        rent_price: faker_rent.sample,
-        sun_exposure: faker_sun.sample,
-        organic: false,
-        flowering: true,
-        flower_color: 'Red',
-        availabe_for_purchase: false,
-        buy_price: 35,
-        address: address.sample,
-        description: faker_desc.sample,
-        watering: 'Water the plant regularly; twice a week is sufficient. Preferably water from below so that the foliage and flowers do not get wet. Briefly immersing the pot is also an option. Allow to drain well in order to ensure that the soil does not stay too wet.',
-        care: faker_care.sample,
-        user: User.all.sample
-      )
-    plant_url = URI.open("https://loremflickr.com/300/300/flowers/all")
-    plant.photo.attach(io: plant_url, filename: "#{plant.name}.png", content_type: 'image/png')
-    plant.save
-    puts "Made #{plant.name}"
-    end
+100.times do
+  plant = Plant.new(
+    name: faker_name.sample,
+    size: faker_size.sample,
+    environment: faker_environ.sample,
+    species: Faker::Cannabis.cannabinoid,
+    height: faker_height.sample,
+    rent_price: faker_rent.sample,
+    sun_exposure: faker_sun.sample,
+    organic: false,
+    flowering: true,
+    flower_color: 'Red',
+    availabe_for_purchase: false,
+    buy_price: 35,
+    address: address.sample,
+    description: faker_desc.sample,
+    watering: 'Water the plant regularly; twice a week is sufficient. Preferably water from below so that the foliage and flowers do not get wet. Briefly immersing the pot is also an option. Allow to drain well in order to ensure that the soil does not stay too wet.',
+    care: faker_care.sample,
+    user: User.all.sample
+  )
+  plant_url = URI.open("https://loremflickr.com/300/300/flowers/all")
+  plant.photo.attach(io: plant_url, filename: "#{plant.name}.png", content_type: 'image/png')
+  plant.save
+  puts "Made #{plant.name}"
+end
 
 puts "Finished!"
