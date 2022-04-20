@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 Rails.start()
 Turbolinks.start()
@@ -28,4 +29,5 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initMapbox();
+  initAutocomplete();
 });

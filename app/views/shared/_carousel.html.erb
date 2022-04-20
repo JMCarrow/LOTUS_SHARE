@@ -1,8 +1,8 @@
-<section class="pt-5 pb-4">
+<section class="pt-4 pb-4">
   <div class="container">
     <div class="row">
       <div class="col-6">
-          <h3 class="mb-3">Recommendations</h3>
+          <h3 class="mb-3">Florist Shops Highlights</h3>
       </div>
       <div class="col-6 text-right">
           <a class="btn btn-light mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -20,17 +20,19 @@
                 <% @carousel1.each do |plant| %>
                   <div class="col-md-4 mb-3">
                     <div class="car-card">
-                      <div class="car-card-body">
-                        <div class="car-card-image">
-                          <% if plant.photo.attached? %>
-                            <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
-                          <% end %>
+                      <%= link_to plant_path(plant) do %>
+                        <div class="car-card-body">
+                          <div class="car-card-image">
+                            <% if plant.photo.attached? %>
+                              <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
+                            <% end %>
+                          </div>
+                          <div class="car-card-info">
+                            <h4 class="car-card-title"><%= plant.name %></h4>
+                            <p class="car-card-text"><%= plant.description.first(200) %></p>
+                          </div>
                         </div>
-                        <div class="car-card-info">
-                          <h4 class="car-card-title"><%= plant.name %></h4>
-                          <p class="car-card-text"><%= plant.description.first(200) %></p>
-                        </div>
-                      </div>
+                      <% end %>
                     </div>
                   </div>
                 <% end %>
@@ -41,17 +43,19 @@
                 <% @carousel2.each do |plant| %>
                   <div class="col-md-4 mb-3">
                     <div class="car-card">
-                      <div class="car-card-body">
-                        <div class="car-card-image">
-                          <% if plant.photo.attached? %>
-                            <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
-                          <% end %>
+                      <%= link_to plant_path(plant) do %>
+                        <div class="car-card-body">
+                          <div class="car-card-image">
+                            <% if plant.photo.attached? %>
+                              <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
+                            <% end %>
+                          </div>
+                          <div class="car-card-info">
+                            <h4 class="car-card-title"><%= plant.name %></h4>
+                            <p class="car-card-text"><%= plant.description.first(200) %></p>
+                          </div>
                         </div>
-                        <div class="car-card-info">
-                          <h4 class="car-card-title"><%= plant.name %></h4>
-                          <p class="car-card-text"><%= plant.description.first(200) %></p>
-                        </div>
-                      </div>
+                       <% end %>
                     </div>
                   </div>
                 <% end %>
@@ -62,17 +66,19 @@
                 <% @carousel3.each do |plant| %>
                   <div class="col-md-4 mb-3">
                     <div class="car-card">
-                      <div class="car-card-body">
-                        <div class="car-card-image">
-                          <% if plant.photo.attached? %>
-                            <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
-                          <% end %>
+                      <%= link_to plant_path(plant) do %>
+                        <div class="car-card-body">
+                          <div class="car-card-image">
+                            <% if plant.photo.attached? %>
+                              <%= cl_image_tag plant.photo.key, crop: :fill, class:"car-card-image"%>
+                            <% end %>
+                          </div>
+                          <div class="car-card-info">
+                            <h4 class="car-card-title"><%= plant.name %></h4>
+                            <p class="car-card-text"><%= plant.description.first(200) %></p>
+                          </div>
                         </div>
-                        <div class="car-card-info">
-                          <h4 class="car-card-title"><%= plant.name %></h4>
-                          <p class="car-card-text"><%= plant.description.first(200) %></p>
-                        </div>
-                      </div>
+                      <% end %>
                     </div>
                   </div>
                 <% end %>

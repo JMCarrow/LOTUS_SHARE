@@ -40,6 +40,11 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     @reservation = Reservation.new
     authorize @plant
+    @plants = Plant.all
+    @plantall = @plants[0..8]
+    @carousel1 = @plantall[0..2]
+    @carousel2 = @plantall[3..5]
+    @carousel3 = @plantall[6..8]
   end
 
   def create
