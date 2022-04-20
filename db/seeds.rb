@@ -51,6 +51,42 @@ user.photo.attach(io: cameron, filename: 'cameron.png', content_type: 'image/png
 user.save
 puts "Created #{user.first_name}"
 
+rikesh = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650439465/fgmnrubm6cxbc2uqtqrm.jpg')
+user = User.new(first_name: "Rikesh", last_name: "Jadhav", email: "test7@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: rikesh, filename: 'rikesh.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+gustav = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650439622/bvkvkfdcfifla1bfrawz.jpg')
+user = User.new(first_name: "Gustav", last_name: "Navarro", email: "test8@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: gustav, filename: 'gustav.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+elena = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650440071/sehry8pkj1zb5q89l7jw.jpg')
+user = User.new(first_name: "Elena", last_name: "Shevchenko", email: "test9@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: elena, filename: 'elena.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+mohamed = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650440440/cxr4tj7tapwm28srgqwq.jpg')
+user = User.new(first_name: "Mohamed", last_name: "Ahmed", email: "test10@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: mohamed, filename: 'mohamed.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+elonzo = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650441372/zqihtjzc5l7uhddjkxa4.jpg')
+user = User.new(first_name: "Elonzo", last_name: "Bitton", email: "test11@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: elonzo, filename: 'elonzo.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
+tamar = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650442092/fnbghjn2joyzxbkybzhb.jpg')
+user = User.new(first_name: "Tamar", last_name: "Cohen", email: "test12@gmail.com", password: "123456", professional: false, healer: false)
+user.photo.attach(io: tamar, filename: 'tamar.png', content_type: 'image/png')
+user.save
+puts "Created #{user.first_name}"
+
 puts "Creating plants..."
 
 hanging_fern = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649853160/m4vukrbt7opuqn3lgfzv.jpg')
