@@ -35,10 +35,10 @@ user_sara.save
 puts "Created #{user_sara.first_name}"
 
 douglas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283926/ddbzxug7mj8puck4odsd.jpg')
-user = User.new(first_name: "Douglas", last_name: "Woodrow", email: "douglas@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
-user.photo.attach(io: douglas, filename: 'douglas.png', content_type: 'image/png')
-user.save
-puts "Created #{user.first_name}"
+user_douglas = User.new(first_name: "Douglas", last_name: "Woodrow", email: "douglas@gmail.com", password: "123456",  professional: false, healer: false, pro_name: nil)
+user_douglas.photo.attach(io: douglas, filename: 'douglas.png', content_type: 'image/png')
+user_douglas.save
+puts "Created #{user_douglas.first_name}"
 
 janeth = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650284183/gmysu8b7xmbfge0xfbei.jpg')
 user_janeth = User.new(first_name: "Janeth", last_name: "Strickland", email: "janeth@gmail.com", password: "123456",  professional: true, healer: true, pro_name: "Artisanal Floral Boutique", minority_owned: true, bio: "Once you surpassed the first moment of awe while looking at all the plants, you might notice how bright and contemporary the space looks like. White and pastel hues, terracotta colored doors, wooden accents, pale pink walls - for those familiar with the French design scene the conclusion lies on the hand: We invite you to enjoy a cup of tea while you are pondering about how many plants you can actually juggle through the streets of Paris!.")
@@ -90,7 +90,7 @@ puts "Created #{user.first_name}"
 
 # Faker adds 50 more users
 
-user_url = "https://randomuser.me/api/?results=50"
+user_url = "https://randomuser.me/api/?results=0"
 users_data = JSON.parse(open(user_url).read)
 bio = ["Having an event and here to rent some plants to impress my friends!", "I own an Airbnb and am looking to rent plants on a monthly basis to decorate the space!", "I am en event planner and looking to rent plants for very specific events I throw for clients!", "I am a real estate agent and am in needs of plants for staging units for sale!"]
 
@@ -203,7 +203,7 @@ faker_care = ["Nothing to do here but enjoy the company of your new guest!", "Ga
 address = ["56 Bd de la Boissière, 93100 Montreuil", "Av. Daumesnil, 75012 Paris", "181 Bd Macdonald, 75019 Paris", "8 Rue David d'Angers, 75019 Paris", "2-12 Rue François Mitterrand, 94200 Ivry-sur-Seine", "2 Rue Cauchy, 75015 Paris", "10 Rue Dupleix, 75015 Paris", "2 Rue Louis Boilly, 75016 Paris", "40 Rue Worth, 92150 Suresnes", "Pl. de la Vache Noire, 94110 Arcueil", "88 Av. de Choisy, 75013 Paris", "12 Rue du Père Guérin, 75013 Paris", "49 Rue Monge, 75005 Paris", "10 Rue des Bernardins, 75005 Paris", "57 Rue Galande, 75005 Paris", "3 Pl. Saint-Michel, 75005 Paris", "121 Rue de Reuilly, 75012 Paris", "242 Rue du Faubourg Saint-Antoine, 75012 Paris", "56 Rue Carnot, 93100 Montreuil", "15 Pl. du Général de Gaulle, 93100 Montreuil", "1 Rue Saint-Germain, 93230 Romainville", "La, 4 Av. Paul Vaillant Couturier, 93120 La Courneuve", "2 Rue Jesse Owens, 93200 Saint-Denis", "23 Av. Marceau, 92400 Courbevoie"]
 faker_name = ["Abutilon", "Acacia", "Aconite", "African Daisy", "Agapanthus", "Ageratum", "Alchemilla", "Allium", "Alstroemeria", "Alyssum", "Amaranthus", "Amaryllis", "Anemone", "Anise Hyssop", "Armeria Maritima", "Aster", "Azalea", "Baby's Breath", "Bachelor's Button", "Balloon Flower", "Ballota", "Bee Balm", "Begonia", "Bellflower", "Bergamot", "Bergenia", "Billbergia", "Black-eyed Susan", "Blanket Flower", "Blazing Star", "Bleeding Heart", "Bletilla","Bluestar Flower","Bluebonnets", "Blue-eyed Grass", "Borage", "Bottlebrush", "Bouvardia", "Brachyscome", "Broom", "Buttercup", "Butterfly Bush", "Calceolaria", "Calendula", "California Poppy", "Calla Lily", "Camellia","Candytuft", "Canna Lily", "Cape Leadwort", "Cape Primrose", "Cardinal Flower", "Carnation", "Catharanthus", "Catmint", "Celosia", "Cerastium Tomentosum", "Chicory", "Chionodoxa", "Chrysanthemum", "Clarkia", "Clematis", "Clover", "Columbine", "Coneflower", "Coral Bells", "Coral Vine", "Coreopsis", "Cornflower", "Corydalis", "Cosmos", "Cotoneaster", "Crocosmia", "Crocus", "Crown Imperial", "Cuckoo Flower", "Cyclamen", "Daffodil", "Dahlia", "Daisy", "Dandelion", "Daphne", "Daylily", "Decumaria", "Delphinium","Desert Rose", "Deutzia", "Dianella", "Dianthus barbatus", "Diascia","Dietes","Dill", "Disa", "Dutch Iris", "Echinops", "Echium", "Elder", "English Bluebell", "Epimedium", "Eremurus", "Erica", "Erigeron", "Euphorbia", "Eustoma", "Evening Primrose", "Fall Crocus", "Feverfew", "Firethorn", "Flaming Katy", "Flannel Flower", "Flax Flower", "Flowering Dogwood", "Forget Me Not", "Forsythia", "Four O'clock", "Foxglove", "Frangipani Flower","Freesia","French Marigold", "Fuchsia", "Gaillardia", "Gardenia", "Gazania", "Geranium", "Gerbera Flower", "Gladiolas", "Goldenrod", "Grape Hyacinth", "Guzmania", "Hawthorn", "Heather", "Hebe", "Helenium", "Helichrysum", "Heliotrope", "Hellebore", "Hibiscus", "Holly", "Hollyhock", "Honeysuckle", "Hosta", "Hyacinth", "Hydrangea","Hyssop","Ice Plant", "Iceland Poppy", "Impatiens", "Ipomoea Lobata", "Iris", "Ixia", "Ixora", "Jacob's Ladder", "Jasmine", "Johnny Jump Up", "Kaffir Lily", "Kalmia", "Kangaroo Paw", "Knautia", "Kniphofia", "Lady's Slipper", "Laelia", "Lantana", "Larkspur", "Lavatera", "Lavender", "Lemon Verbena", "Lewesia", "Lilac", "Lily of the Valley", "Lily", "Linaria", "Lotus", "Love in the Mist", "Lunaria", "Lupin", "Magnolia", "Maltese Cross", "Mandevilla", "Marguerite Daisy", "Marigold", "Matthiola", "Mayflower", "Meconopsis", "Mimosa", "Monk's Hood", "Moraea", "Morning Glory", "Moss Rose", "Narcissus", "Nasturtium", "Nemesia", "Nemophila", "Neoregelia", "Nerine", "New Zealand Tea Tree", "Nierembergia", "Nolana", "Oleander", "Olearia", "Orchid", "Oriental Lily", "Oriental Poppy", "Ornamental Cherry", "Ornithogalum", "Osteospermum", "Oxalis", "Oxeye Daisy", "Oyster Plant", "Painted Daisy", "Pansy", "Parodia", "Passion Flower", "Peace Lily", "Pelargonium", "Penstemon", "Peony", "Periwinkle", "Persian Buttercup", "Petunia", "Phlox", "Photinia", "Physostegia", "Pincushion Flower", "Pinks", "Poinsettia", "Potentilla", "Polyanthus", "Poppy", "Powder Puff", "Quaker Ladies", "Queen Anne's Lace", "Queen of the Meadow", "Queen's Cup", "Quince", "Rain Lily", "Rock Rose", "Rondeletia", "Roses", "Rose of Sharon", "Sage", "Saint John's Wort", "Scaevola", "Scented Geranium", "Scilla", "Sedum", "Shasta Daisy", "Silene", "Snapdragon", "Snowdrop", "Snowflake", "Soapwort", "Speedwell", "Starflower", "Statice", "Sunflower", "Sweet Pea", "Tea Rose", "Tiger Flower", "Tithonia", "Trachelium", "Trillium", "Triteleia", "Tritonia crocata", "Trollius", "Trumpet Vine", "Tuberose", "Tulip", "Urn Plant", "Ursinia", "Uva Ursi", "Valerian", "Verbena", "Viburnum", "Viola", "Virginia Creeper", "Wallflower", "Wandflower", "Water lilies", "Watsonia", "Wax Plant", "Wedelia", "Weigela", "Whirling Butterflies", "Winter Jasmine", "Winterberry", "Wishbone Flower", "Woolly Violet", "Xanthoceras sorbifolium", "Xerophyllum", "Xylobium", "Xylosma", "Yarrow", "Yellow Archangel", "Yellow Bell", "Yellow-eyed Grass", "Zenobia", "Zinnia"]
 
-100.times do
+0.times do
   plant = Plant.new(
     name: faker_name.sample,
     size: faker_size.sample,
@@ -275,7 +275,7 @@ faker_rating = (1..5).to_a
 faker_content = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid magni veritatis illo nostrum laborum cumque dolor quisquam quod molestiae, distinctio consequuntur, officia ab repudiandae provident ducimus aspernatur exercitationem eius itaque.", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat ut beatae incidunt, facilis dicta laudantium voluptatibus maxime. Minima, nemo quam voluptates cumque dolorem quo, dignissimos consequatur nobis animi enim ad?", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum qui dolor ullam possimus! Error ut, temporibus officia natus facere, asperiores esse autem, cupiditate numquam ipsa velit minima reprehenderit ad sit.", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laboriosam velit voluptatem, quia facilis vitae, ipsa id necessitatibus magnam dolorem corrupti numquam laudantium mollitia similique, voluptatibus perferendis? Ea, corporis provident?"]
 faker_user = User.where(professional: false)
 
-200.times do
+0.times do
   review = Review.new(
     rating: faker_rating.sample,
     content: faker_content.sample,
@@ -288,10 +288,18 @@ end
 
 puts "Finished!"
 
-puts "Creating Bobby loan"
+puts "Creating Bobby loan and rent"
 
 reservation_mimi = Reservation.new(delivered: true, returned: false, user_id: user_mimi.id, plant_id: plant_hk.id, starts_at: "2022-04-18", ends_at: "2022-04-22", completed: false, reviewed: false, declined: false, take_care: true)
 reservation_mimi.save
+puts "reservation created"
+
+reservation_douglas = Reservation.new(delivered: true, returned: true, user_id: user_douglas.id, plant_id: plant_hk.id, starts_at: "2022-04-10", ends_at: "2022-04-17", completed: true, reviewed: false, declined: false, take_care: true)
+reservation_douglas.save
+puts "reservation created"
+
+reservation_bobby = Reservation.new(delivered: true, returned: true, user_id: user_bob.id, plant_id: plant_begonia.id, starts_at: "2022-04-10", ends_at: "2022-04-21", completed: true, reviewed: false, declined: false, take_care: true)
+reservation_bobby.save
 puts "reservation created"
 
 puts "Finished!"
