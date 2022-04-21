@@ -8,7 +8,7 @@
 
 require "open-uri"
 require 'faker'
-
+Review.destroy_all
 Reservation.destroy_all
 Plant.destroy_all
 User.destroy_all
@@ -271,7 +271,7 @@ puts "#{user_cameron.first_name} review created"
 
 puts "Creating faker reviews"
 
-faker_rating = (1..5).to_a
+faker_rating = (3..5).to_a
 faker_content = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid magni veritatis illo nostrum laborum cumque dolor quisquam quod molestiae, distinctio consequuntur, officia ab repudiandae provident ducimus aspernatur exercitationem eius itaque.", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat ut beatae incidunt, facilis dicta laudantium voluptatibus maxime. Minima, nemo quam voluptates cumque dolorem quo, dignissimos consequatur nobis animi enim ad?", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum qui dolor ullam possimus! Error ut, temporibus officia natus facere, asperiores esse autem, cupiditate numquam ipsa velit minima reprehenderit ad sit.", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laboriosam velit voluptatem, quia facilis vitae, ipsa id necessitatibus magnam dolorem corrupti numquam laudantium mollitia similique, voluptatibus perferendis? Ea, corporis provident?"]
 faker_user = User.where(professional: false)
 
