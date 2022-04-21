@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save!
       reservation = Reservation.find(params[:reservation])
       reservation.update(reviewed: true)
-      redirect_to user_path(@plant.user)
+      redirect_to dashboard_path
     end
   end
 

@@ -23,6 +23,7 @@
                   <th scope="col" class="dash-title" style="width: 10vw;">Plant Rented</th>
                   <th scope="col" class="dash-title" style="width:10vw;">Plant Owner</th>
                   <th scope="col" class="dash-title" style="width: 15vw;">Plant Location</th>
+                  <th scope="col" class="dash-title" style="width: 8vw;">Rental Price</th>
                   <th scope="col" class="dash-title" style="width: 15vw;">Status</th>
                   <th scope="col" class="dash-title" style="width: 15vw;">Change / Return my reservation</th>
                 </div>
@@ -33,7 +34,7 @@
                   <% unless reservation.completed? %>
                     <tr>
                       <td class="resa-info"><%= cl_image_tag reservation.plant.photo.key, crop: :fill, class: "resa-image" %></td>
-                      <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+                      <td class="resa-info resa-date"><%= reservation.starts_at.to_date.strftime('%a, %e %b %Y') %> to <%= reservation.ends_at.to_date.strftime('%a, %e %b %Y') %></th>
                       <td class="resa-info"><%= link_to reservation.plant.name, plant_path(reservation.plant) %></td>
                       <% if reservation.plant.user.pro_name? %>
                       <td class="resa-info">
@@ -47,16 +48,21 @@
                         <td class="resa-info"><%= link_to reservation.plant.user.first_name, user_path(reservation.plant.user) %></td>
                       <% end %>
                       <td class="resa-info"><%= reservation.plant.address %></td>
+                      <% if reservation.take_care == true %>
+                        <td class="resa-info"><%= reservation.full_price %>€ <i class="fa-solid fa-leaf" style="color: green;"></i></td>
+                      <% else %>
+                        <td class="resa-info"><%= reservation.full_price %>€</td>
+                      <% end %>
                       <!--- If the reservation has been accepted the reservation can no longer be edited by the requestor--->
                       <% if  reservation.returned? && reservation.completed == false %>
-                        <td class="resa-info">
+                        <td class="resa-info status_info">
                           <div class="d-flex">
                             <p style="margin: 0;"> Pending return confirmation from the owner.</p>
                         </td>
                         <td>
                         </td>
                       <% elsif reservation.delivered? %>
-                        <td class="resa-info">
+                        <td class="resa-info status_info">
                           <div class="d-flex">
                             <p style="margin: 0;"> Your reservation has been accepted!</p>
                           </div>
@@ -68,7 +74,7 @@
                         </td>
                         <%= render 'shared/modalresa', reservation: reservation %>
                       <% elsif reservation.declined?%>
-                        <td class="resa-info">
+                        <td class="resa-info status_info">
                           <div class="d-flex">
                             <p style="margin: 0;"> Warning! Your reservation has been DECLINED!</p>
                           </div>
@@ -77,7 +83,7 @@
                             <%= link_to 'Remove', reservation_path(reservation), method: :delete, data: { confirm: "The request has been removed from your queue."}, style:'padding-left: 20px; padding-right: 20px', class: "btn btn-outline-danger"%>
                         </td>
                       <% else %>
-                        <td class="resa-info">
+                        <td class="resa-info status_info">
                           <div class="d-flex">
                             <p style="margin: 0;">Waiting for owner confirmation</p>
                           </div>
@@ -116,7 +122,8 @@
                 <th scope="col" class="dash-title" style="width: 10vw;">Client Name</th>
                 <th scope="col" class="dash-title" style="width: 10vw;">Client Contact</th>
                 <th scope="col" class="dash-title" style="width: 10vw;">Client Location</th>
-                <th scope="col" class="dash-title" style="width: 10vw;">Status</th>
+                <th scope="col" class="dash-title" style="width: 10vw;">Loaned price</th>
+                <th scope="col" class="dash-title" style="width: 11vw;">Status</th>
                 <th scope="col" class="dash-title" style="width: 15vw;">Manage the order</th>
               </tr>
             </thead>
@@ -125,7 +132,7 @@
                 <% unless clientreservation.completed? || clientreservation.declined?%>
                   <tr>
                     <td class="resa-info"><%= cl_image_tag clientreservation.plant.photo.key, crop: :fill, class: "resa-image" %></td>
-                    <td class="resa-info"><%= clientreservation.starts_at%> to <%= clientreservation.ends_at%></td>
+                    <td class="resa-info resa-date"><%= clientreservation.starts_at.to_date.strftime('%a, %e %b %Y') %> to <%= clientreservation.ends_at.to_date.strftime('%a, %e %b %Y') %></th>
                     <td class="resa-info"><%= link_to clientreservation.plant.name, plant_path(clientreservation.plant) %></th>
                     <% if clientreservation.user.pro_name? %>
                       <td class="resa-info">
@@ -140,6 +147,7 @@
                     <% end %>
                     <td class="resa-info"><%= clientreservation.user.email %></td>
                     <td class="resa-info"><%= clientreservation.plant.address %></td>
+                    <td class="resa-info"><%= clientreservation.full_price %>€</td>
                     <div>
                     <!---If the deservation has been accepted, the accept button disappears--->
                     <% if clientreservation.delivered == false %>
@@ -152,8 +160,8 @@
                           </div>
                         </td>
                     <% elsif clientreservation.delivered && clientreservation.returned == false %>
-                      <td class="resa-info">
-                        <div class="">
+                      <td class="resa-info status_info">
+                        <div>
                           <p style="margin: 0;">Reservation accepted</p>
                           <p style="margin: 0;">Waiting for borrower returning the item</p>
                         </div>
@@ -161,15 +169,15 @@
                       <td>
                       </td>
                     <% elsif clientreservation.declined? %>
-                      <td class="resa-info">
-                        <div class="">
+                      <td class="resa-info status_info">
+                        <div>
                           <p style="margin: 0;">The request has been declined</p>
                         </div>
                       </td>
                       <td>
                       </td>
                     <% else clientreservation.delivered && clientreservation.returned? %>
-                      <td class="resa-info">
+                      <td class="resa-info status_info">
                         <div class="">
                           <p style="margin: 0;">The renter has returned the plant</p>
                         </div>
@@ -203,7 +211,8 @@
               <tr>
                 <th scope="col" class="dash-title" style="width: 8vw;">Plant picture</th>
                 <th scope="col" class="dash-title" style="width: 8vw;">Rented or Loaned</th>
-                <th scope="col" class="dash-title" style="width: 10vw;">Reservation Dates</th>
+                <th scope="col" class="dash-title" style="width: 8vw;">Profit / Loss</th>
+                <th scope="col" class="dash-title" style="width: 8vw;">Reservation Dates</th>
                 <th scope="col" class="dash-title" style="width: 10vw;">Plant</th>
                 <th scope="col" class="dash-title" style="width: 10vw;">Plant Owner</th>
                 <th scope="col" class="dash-title" style="width: 10vw;">Plant Location</th>
@@ -216,7 +225,8 @@
                   <tr>
                     <td class="resa-info"><%= cl_image_tag reservation.plant.photo.key, crop: :fill, class: "resa-image" %></td>
                     <td class="resa-info"> Rental </th>
-                    <td class="resa-info resa-date">From <%= reservation.starts_at %> to <%= reservation.ends_at %></th>
+                    <td class="resa-info"><%= reservation.full_price %>€ <i class="fa-solid fa-money-bill-transfer" style="margin-left: 1rem;color: grey;"></i></td>
+                    <td class="resa-info resa-date"><%= reservation.starts_at.to_date.strftime('%a, %e %b %Y') %> to <%= reservation.ends_at.to_date.strftime('%a, %e %b %Y') %></th>
                     <td class="resa-info"><%= link_to reservation.plant.name , plant_path(reservation.plant) %></td>
                     <% if reservation.plant.user.pro_name? %>
                       <td class="resa-info">
@@ -238,7 +248,7 @@
                           </div>
                         </td>
                       <% else  %>
-                        <td class="resa-info review-status"> Review Complete </th>
+                        <td class="resa-info review-status"> Review Complete <i class="fa-solid fa-check"></i></td>
                       <% end %>
                     </div>
                   </tr>
@@ -250,9 +260,9 @@
                   <tr>
                     <td class="resa-info"><%= cl_image_tag clientreservation.plant.photo.key, crop: :fill, class: "resa-image" %></td>
                     <td class="resa-info"> Loan </th>
-                    <td class="resa-info resa-date">From <%= clientreservation.starts_at %> to <%= clientreservation.ends_at %></th>
+                    <td class="resa-info"><%= clientreservation.full_price %>€ <i class="fa-solid fa-money-bill-trend-up" style="margin-left: 1rem;color: green;"></i></td>
+                    <td class="resa-info resa-date"><%= clientreservation.starts_at.to_date.strftime('%a, %e %b %Y') %> to <%= clientreservation.ends_at.to_date.strftime('%a, %e %b %Y') %></th>
                     <td class="resa-info"><%= link_to clientreservation.plant.name , plant_path(clientreservation.plant) %></td>
-                    <td class="resa-info"><%= link_to clientreservation.plant.user.first_name , user_path(clientreservation.plant.user) %></td>
                     <% if clientreservation.plant.user.pro_name? %>
                       <td class="resa-info">
                         <i class="bi bi-shop"></i>
@@ -275,7 +285,7 @@
                       <% else %>
                         <td class="resa-info">
                           <div class="">
-                            <p style="margin: 0;">Loan complete</p>
+                            <p style="margin: 0;">Loan complete <i class="fa-solid fa-check"></i></p>
                           </div>
                         </td>
                       <% end %>

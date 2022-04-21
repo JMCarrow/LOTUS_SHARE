@@ -17,10 +17,10 @@ puts "Cleaning Database!"
 puts "Creating users..."
 
 mimi = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650283602/cpxlg3rjceanrvjudpak.jpg')
-user = User.new(first_name: "Mimi", last_name: "Dou", email: "mimi@gmail.com", password: "123456", professional: false, healer: false)
-user.photo.attach(io: mimi, filename: 'mimi.png', content_type: 'image/png')
-user.save
-puts "Created #{user.first_name}"
+user_mimi = User.new(first_name: "Mimi", last_name: "Dou", email: "mimi@gmail.com", password: "123456", professional: false, healer: false)
+user_mimi.photo.attach(io: mimi, filename: 'mimi.png', content_type: 'image/png')
+user_mimi.save
+puts "Created #{user_mimi.first_name}"
 
 bob = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650358877/v0w5kst9x4hjkiu1gi8j.jpg')
 user_bob = User.new(first_name: "Bobby", last_name: "Feelgood", email: "bobby@gmail.com", password: "123456", professional: false, healer: true, bio: "Uh oh. Did you come home to a less-than-happy plant? Don't panic just yet! Your plant still has some hope before it meets its untimely demise. Instead, know that a plant's health fluctuates if it's getting too much or too little of something. Most solutions to your plant's health issues are easy fixes that restore it to its natural balance. For example, a plant getting too much sun simply needs to find a new home in a shadier spot. Still lost for what to do to save your wilting friends? Drop your plant off with me and I will breathe new life into your green friends!")
@@ -123,10 +123,10 @@ plant_fern.save
 puts "Created #{plant_fern.name}"
 
 alstromeria = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649948453/b78iw0b57hl7rlbbhxod.jpg')
-plant = Plant.create(name: "Alstroemeria Paola", size: "Small", environment: "Outdoor", species: "Alstroemeria Princess Paola", height: "20cm - 30cm", rent_price: 4, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Multi", availabe_for_purchase: false, buy_price: 35, address: "123 Memory Lane, 93170 Paris", description: "'Princess Paola' _ 'Princess Paola', a dwarf, long flowering variety, has lance-shaped leaves and apricot and pale pink flowers with yellow centres in summer.", watering: "Water 0.5L each week and keep soil moise but well drained.", care: "Gaze upon the longevity of the flowers with adoration.", user: user_janeth)
-plant.photo.attach(io: alstromeria, filename: 'alstromeria.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_alstro = Plant.create(name: "Alstroemeria Paola", size: "Small", environment: "Outdoor", species: "Alstroemeria Princess Paola", height: "20cm - 30cm", rent_price: 4, sun_exposure: "Indirect", organic: true, flowering: true, flower_color: "Multi", availabe_for_purchase: false, buy_price: 35, address: "123 Memory Lane, 93170 Paris", description: "'Princess Paola' _ 'Princess Paola', a dwarf, long flowering variety, has lance-shaped leaves and apricot and pale pink flowers with yellow centres in summer.", watering: "Water 0.5L each week and keep soil moise but well drained.", care: "Gaze upon the longevity of the flowers with adoration.", user: user_janeth)
+plant_alstro.photo.attach(io: alstromeria, filename: 'alstromeria.png', content_type: 'image/png')
+plant_alstro.save
+puts "Created #{plant_alstro.name}"
 
 begonia = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1650356168/tg2a4awhidri4xieiy11.jpg')
 plant_begonia = Plant.new(name: 'Begonia', size: "Small", environment: "Outdoor", species: "Begonia Superba Yellow", height: "30cm - 60cm", rent_price: 2, sun_exposure: "Direct", organic: false, flowering: true, flower_color: "Yellow", availabe_for_purchase: false, buy_price: 35, address: "16 Rue du Repos, 75020 Paris", description: "Fresh and vibrant Begonia 'Superba Yellow' is a tropical-looking treasure with impressively large double blooms in a delicate cocktail of soft lemon and peach tones. Boldly brandishing a continuous display of these big blooms all summer long whether in sun or shade, it's just what's needed for injecting some warm, bright hues and floral magic into a dull spot.", watering: "Water 200ml each week but make sure the soil is dry before wating again.", care: "Nothing to do but enjoy the delicate, large blooms!", user: user_cameron)
@@ -159,10 +159,10 @@ plant.save
 puts "Created #{plant.name}"
 
 hydrangeas = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649948331/fcfncm3eudowe4eho3yk.jpg')
-plant = Plant.create(name: "Limelight Hydrangea", size: "Large", environment: "Outdoor", species: "Hydrangea paniculata", height: "100cm+", rent_price: 10, sun_exposure: "Direct", organic: true, flowering: true, flower_color: "White", availabe_for_purchase: false, buy_price: 35, address: "1 Rue de Rivoli, 75001 Paris", description: "This has very large flowers that are held upright by strong stems.", watering: "Water 1L each week", care: "Whisper kind words in her leaves every hour for optimum beauty. Also, protect from any strong winds.", user: user_janeth)
-plant.photo.attach(io: hydrangeas, filename: 'hydrangeas.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_lime = Plant.create(name: "Limelight Hydrangea", size: "Large", environment: "Outdoor", species: "Hydrangea paniculata", height: "100cm+", rent_price: 10, sun_exposure: "Direct", organic: true, flowering: true, flower_color: "White", availabe_for_purchase: false, buy_price: 35, address: "1 Rue de Rivoli, 75001 Paris", description: "This has very large flowers that are held upright by strong stems.", watering: "Water 1L each week", care: "Whisper kind words in her leaves every hour for optimum beauty. Also, protect from any strong winds.", user: user_janeth)
+plant_lime.photo.attach(io: hydrangeas, filename: 'hydrangeas.png', content_type: 'image/png')
+plant_lime.save
+puts "Created #{plant_lime.name}"
 
 caladium = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864904/uyumx3c4jkdczoc1xedq.jpg')
 plant = Plant.new(name: "Caladium Tuber", size: "Small", environment: "Indoor", species: "Caladium bicolor", height: "20cm - 30cm", rent_price: 3, sun_exposure: "Indirect", organic: true, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "42 Rue Blomet, 75015 Paris", description: "Nice white leaves with a splash of red - wow your guests!", watering: "Water 50ml every week", care: "Nothing to do but enjoy!", user: user_cameron)
@@ -183,10 +183,10 @@ plant.save
 puts "Created #{plant.name}"
 
 hk = URI.open('https://res.cloudinary.com/dh2wbrqfq/image/upload/v1649864725/gcogwtyviim5bgucftmh.jpg')
-plant = Plant.new(name: "Hoya Kerrii", size: "Small", environment: "Indoor", species: "Acokanthera obovata var. kerrii", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "1 Rue des Fossés Saint-Bernard, 75005 Paris", description: "Heart-shaped plant will remind you to take a moment of mindfulness with every glance.", watering: "Watering 50ml once every two weeks.", care: "Nothing to do here!", user: user_cameron)
-plant.photo.attach(io: hk, filename: 'hoya-kerrii.png', content_type: 'image/png')
-plant.save
-puts "Created #{plant.name}"
+plant_hk = Plant.new(name: "Hoya Kerrii", size: "Small", environment: "Indoor", species: "Acokanthera obovata var. kerrii", height: "10cm - 20cm", rent_price: 1, sun_exposure: "Indirect", organic: false, flowering: false, flower_color: nil, availabe_for_purchase: false, buy_price: 35, address: "1 Rue des Fossés Saint-Bernard, 75005 Paris", description: "Heart-shaped plant will remind you to take a moment of mindfulness with every glance.", watering: "Watering 50ml once every two weeks.", care: "Nothing to do here!", user: user_bob)
+plant_hk.photo.attach(io: hk, filename: 'hoya-kerrii.png', content_type: 'image/png')
+plant_hk.save
+puts "Created #{plant_hk.name}"
 
 puts "Creating faker plants"
 
@@ -233,7 +233,11 @@ puts "Finished!"
 
 puts "Creating reviews..."
 
-review_janeth = Review.new(rating: 4, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_janeth.id, plant_id: plant_orchid.id)
+review_janeth = Review.new(rating: 5, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_janeth.id, plant_id: plant_orchid.id)
+review_janeth.save
+puts "#{user_janeth.first_name} review created"
+
+review_janeth = Review.new(rating: 5, content: "I LOVE this store!!! This Artisanal Floral Boutique is my go to place for picking up a plant to impress my friends! The owner is wonderful and the whole transaction process was a BREEZE! I can't wait to host another event this some more of her inventory.", user_id: user_janeth.id, plant_id: plant_alstro.id)
 review_janeth.save
 puts "#{user_janeth.first_name} review created"
 
@@ -241,15 +245,23 @@ review_janeth = Review.new(rating: 5, content: "Your shop is really amazing, i r
 review_janeth.save
 puts "#{user_janeth.first_name} review created"
 
+review_janeth = Review.new(rating: 5, content: "Overall, lovely time interacting with this shop. Had exactly what I needed to decorate my airbnb and I didn't even have to take care of the plants or ask the customer too either. Perfect option for enhancing these spaces - it makes all the difference. I've told all my friends who have rentals and they are starting to use this service too! ", user_id: user_janeth.id, plant_id: plant_lime.id)
+review_janeth.save
+puts "#{user_janeth.first_name} review created"
+
+review_janeth = Review.new(rating: 5, content: "Probably the best floral place in Paris! Super friendly owner who is very knowledgeable about her inventory. She offers rentals, purchases, and even heals my own plants when I can't seem to keep them alive. My guests were so impressed with the quality of plant that I just had to share the reference! Definitely coming back here for more!", user_id: user_janeth.id, plant_id: plant_orchid.id)
+review_janeth.save
+puts "#{user_janeth.first_name} review created"
+
 review_sara = Review.new(rating: 3, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_sara.id, plant_id: plant_fern.id)
 review_sara.save
 puts "#{user_sara.first_name} review created"
 
-review_sara = Review.new(rating: 4, content: "Your shop is really amazing, i really don't know wich plant to choose everytime i come on your profile ^^", user_id: user_sara.id, plant_id: plant_fern.id)
+review_sara = Review.new(rating: 3, content: "Your shop is really amazing, i really don't know wich plant to choose everytime i come on your profile ^^", user_id: user_sara.id, plant_id: plant_fern.id)
 review_sara.save
 puts "#{user_sara.first_name} review created"
 
-review_cameron = Review.new(rating: 3, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_cameron.id, plant_id: plant_begonia.id)
+review_cameron = Review.new(rating: 4, content: "Thank you so much for this amazing plant i loved it so much!!", user_id: user_cameron.id, plant_id: plant_begonia.id)
 review_cameron.save
 puts "#{user_cameron.first_name} review created"
 
@@ -273,5 +285,13 @@ faker_user = User.where(professional: false)
   review.save
   puts "Faked review"
 end
+
+puts "Finished!"
+
+puts "Creating Bobby loan"
+
+reservation_mimi = Reservation.new(delivered: true, returned: false, user_id: user_mimi.id, plant_id: plant_hk.id, starts_at: "2022-04-18", ends_at: "2022-04-22", completed: false, reviewed: false, declined: false, take_care: true)
+reservation_mimi.save
+puts "reservation created"
 
 puts "Finished!"
