@@ -22,7 +22,9 @@
                   <% end %>
                 </div>
                 <div class="user-card-info">
+                <% if user.pro_name %>
                   <h5 class="user-card-title"><%= user.pro_name.length < 35 ? user.pro_name : user.pro_name.first(35)%></h5>
+                <% end %>
                   <div class="user-card-text">
                      <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
