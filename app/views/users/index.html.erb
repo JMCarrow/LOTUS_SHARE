@@ -27,10 +27,10 @@
                      <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                        <span><% (user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count).round.times do %>
                           <i class="fa-solid fa-star"></i>
                         <% end %>
-                        <% (5-(user.reviews.map{|review| review.rating}.sum / user.reviews.count)).to_i.times do %>
+                        <% (5-(user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count)).round.times do %>
                           <i class="fa-regular fa-star"></i>
                         <% end %>
                         </span>
@@ -61,10 +61,10 @@
                     <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                        <span><% (user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count).round.times do %>
                           <i class="fa-solid fa-star"></i>
                         <% end %>
-                        <% (5-(user.reviews.map{|review| review.rating}.sum / user.reviews.count)).to_i.times do %>
+                        <% (5-(user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count)).round.times do %>
                           <i class="fa-regular fa-star"></i>
                         <% end %>
                       <% else %>
@@ -95,10 +95,10 @@
                      <% if user.plants.any? %>
                       <span><%= user.plants.count %> plants</span>
                       <% if user.reviews.any? %>
-                        <span><% (user.reviews.map{|review| review.rating}.sum / user.reviews.count).to_i.times do %>
+                        <span><% (user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count).round.times do %>
                           <i class="fa-solid fa-star"></i>
                         <% end %>
-                        <% (5-(user.reviews.map{|review| review.rating}.sum / user.reviews.count)).to_i.times do %>
+                        <% (5-(user.reviews.map{|review| review.rating}.sum.to_f / user.reviews.count)).round.times do %>
                           <i class="fa-regular fa-star"></i>
                         <% end %>
                       <% else %>

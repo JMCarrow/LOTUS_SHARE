@@ -58,13 +58,13 @@
       <% end %>
     <% end %>
       <% if @user.reviews.any? %>
-        <span><% (@user.reviews.map{|review| review.rating}.sum / @user.reviews.count).to_i.times do %>
+        <span><% (@user.reviews.map{|review| review.rating}.sum.to_f / @user.reviews.count).round.times do %>
           <i class="fa-solid fa-star"></i>
         <% end %>
-        <% (5-(@user.reviews.map{|review| review.rating}.sum / @user.reviews.count)).to_i.times do %>
+        <% (5-(@user.reviews.map{|review| review.rating}.sum.to_f / @user.reviews.count)).round.times do %>
           <i class="fa-regular fa-star"></i>
         <% end %>
-        <% @rate = @array / @user.reviews.count %>
+
         <span> <%= @user.reviews.count %> reviews</span>
       <% else %>
         <span><%= 0 %> star - <%= 0 %> review</span>
